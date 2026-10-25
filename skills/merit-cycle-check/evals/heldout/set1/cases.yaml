@@ -1,0 +1,413 @@
+# Held-out set 1 for merit-cycle-check. Written blind from the reference documents only
+# (merit-policy-2026.yaml, band-structure.yaml, policy.md, WRITING_HELDOUT.md).
+# Defaults per row: gender M, orgUnit DE-OPS-1, family operations, level L3, location Berlin, fte 1.
+# Midpoints used for cost weighting (rounded to 100): operations Berlin L1 34200, L3 50400,
+# L4 63000, L5 79200, L6 99000; operations Lisbon L3 31200; engineering Hamburg L4 80800.
+# Budget = sum(actual base x pct) / sum(actual base), actual base = compa x midpoint x fte.
+cases:
+  # Every proposal sits exactly on an edge of its range; 0.90 belongs to 0.90-1.00. Budget 2.13%.
+  - id: h-mc-001
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.90, pct: 3.5 }
+        - { rating: 4, compa: 1.10, pct: 3.0 }
+        - { rating: 5, compa: 0.89, pct: 6.0 }
+        - { rating: 2, compa: 1.05, pct: 0.5 }
+        - { rating: 2, compa: 1.05, pct: 0.5 }
+        - { rating: 2, compa: 1.05, pct: 0.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # 3.6% for rating 3 at 0.95 is just above 2.5-3.5 and has no reason: blocking. Budget 2.87%.
+  - id: h-mc-002
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.95, pct: 3.6 }
+        - { rating: 3, compa: 0.95, pct: 2.5 }
+        - { rating: 3, compa: 0.95, pct: 2.5 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [above_guideline] }
+      equals: { "findings[].severity": [blocking] }
+
+  # Above the range (rating 4 below 0.90: 4.5-6.0) with a written reason: warning. Budget 2.96%.
+  - id: h-mc-003
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 4, compa: 0.85, pct: 6.5, reason: "Retention: matched an external offer after a market review with the compensation partner" }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [above_guideline] }
+      equals: { "findings[].severity": [warning] }
+
+  # 3.4% for rating 4 at 0.97 is just below 3.5-5.0: a warning to confirm.
+  - id: h-mc-004
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 4, compa: 0.97, pct: 3.4 }
+        - { rating: 3, compa: 0.95, pct: 3.0 }
+        - { rating: 3, compa: 0.95, pct: 3.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [below_guideline] }
+      equals: { "findings[].severity": [warning] }
+
+  # A rating-1 increase (a reason does not make it allowed) and a rating-3 proposal above 3.0-4.5.
+  - id: h-mc-005
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 1, compa: 0.93, pct: 1.0, reason: "Has taken on extra duties in the depot" }
+        - { rating: 3, compa: 0.88, pct: 5.0 }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+        - { rating: 3, compa: 1.05, pct: 2.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [rating_one_increase, above_guideline] }
+
+  # Rating 1 with no increase is fine; above 1.10 the top of each range is used exactly.
+  - id: h-mc-006
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 1, compa: 0.80, pct: 0.0 }
+        - { rating: 2, compa: 1.12, pct: 0.5 }
+        - { rating: 5, compa: 1.12, pct: 4.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Inside the guideline (1.0-2.0) but 1.18 x 1.02 = 1.2036 of midpoint: above the band maximum.
+  - id: h-mc-007
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 1.18, pct: 2.0 }
+        - { rating: 3, compa: 0.95, pct: 3.0 }
+        - { rating: 3, compa: 0.95, pct: 3.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [above_band_max] }
+
+  # Exactly at the band maximum is not above it; 1.19 x 1.008 = 1.1995 stays inside but is below
+  # the rating-3 range above 1.10 (1.0-2.0).
+  - id: h-mc-008
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 2, compa: 1.20, pct: 0.0 }
+        - { rating: 3, compa: 1.19, pct: 0.8 }
+        - { rating: 4, compa: 1.15, pct: 3.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [below_guideline] }
+
+  # Every proposal is 3.5%: the unit costs exactly 3.5% of base payroll, which is allowed.
+  - id: h-mc-009
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.92, pct: 3.5 }
+        - { rating: 4, compa: 1.06, pct: 3.5 }
+        - { rating: 4, compa: 0.95, pct: 3.5 }
+        - { rating: 3, compa: 0.85, pct: 3.5 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Unweighted average 4.0%, but weighted by base pay (an L5 at 83,160 vs two L1s at about 29,500)
+  # the cost is 3.25%: within budget.
+  - id: h-mc-010
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 1.05, pct: 2.0, level: L5, orgUnit: DE-OPS-3 }
+        - { rating: 4, compa: 0.85, pct: 5.0, level: L1, orgUnit: DE-OPS-3 }
+        - { rating: 4, compa: 0.88, pct: 5.0, level: L1, orgUnit: DE-OPS-3 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Unweighted average 2.67%, but the L6 (94,050) takes 6.0%: weighted cost 3.96%, over budget.
+  - id: h-mc-011
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 5, compa: 0.95, pct: 6.0, level: L6, orgUnit: DE-OPS-3 }
+        - { rating: 2, compa: 0.95, pct: 1.0, level: L1, orgUnit: DE-OPS-3 }
+        - { rating: 2, compa: 0.95, pct: 1.0, level: L1, orgUnit: DE-OPS-3 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [budget_exceeded] }
+
+  # Two units: DE-OPS-1 is all inside the guideline but costs 6.3%; DE-OPS-2 has one proposal
+  # above 2.0-3.0 without a reason but stays within budget (2.38%).
+  - id: h-mc-012
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 4, compa: 0.85, pct: 6.0 }
+        - { rating: 5, compa: 0.88, pct: 8.0 }
+        - { rating: 4, compa: 0.92, pct: 5.0 }
+        - { rating: 3, compa: 0.95, pct: 3.0, orgUnit: DE-OPS-2 }
+        - { rating: 3, compa: 1.08, pct: 3.4, orgUnit: DE-OPS-2 }
+        - { rating: 2, compa: 0.90, pct: 0.5, orgUnit: DE-OPS-2 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [budget_exceeded, above_guideline] }
+
+  # Equity exactly on the threshold: two comparisons of weight 2 (total 4), women 1.0 point below
+  # men in both. All proposals inside the guideline; budget 3.26%.
+  - id: h-mc-013
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-2 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-2 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-2 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-2 }
+        - { rating: 4, compa: 1.05, pct: 3.0, gender: F, orgUnit: DE-OPS-2 }
+        - { rating: 4, compa: 1.05, pct: 3.0, gender: F, orgUnit: DE-OPS-2 }
+        - { rating: 4, compa: 1.05, pct: 4.0, orgUnit: DE-OPS-2 }
+        - { rating: 4, compa: 1.05, pct: 4.0, orgUnit: DE-OPS-2 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [equity_gap] }
+
+  # Same pattern but only 3 in total weight (1 + 2); the L4 woman has no male comparator.
+  # Not enough to compare, so no equity finding.
+  - id: h-mc-014
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F }
+        - { rating: 3, compa: 0.95, pct: 3.5 }
+        - { rating: 4, compa: 1.05, pct: 3.0, gender: F }
+        - { rating: 4, compa: 1.05, pct: 3.0, gender: F }
+        - { rating: 4, compa: 1.05, pct: 4.0 }
+        - { rating: 4, compa: 1.05, pct: 4.0 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, level: L4 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Women average 2.5% and men 4.0% overall, but only because more women have rating 2 and more
+  # men rating 5. Within each rating they get the same: no equity gap. Budget 3.25%.
+  - id: h-mc-015
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 2, compa: 0.95, pct: 1.0, gender: F, orgUnit: DE-OPS-4 }
+        - { rating: 2, compa: 0.95, pct: 1.0, gender: F, orgUnit: DE-OPS-4 }
+        - { rating: 2, compa: 0.95, pct: 1.0, gender: F, orgUnit: DE-OPS-4 }
+        - { rating: 2, compa: 0.95, pct: 1.0, gender: F, orgUnit: DE-OPS-4 }
+        - { rating: 2, compa: 0.95, pct: 1.0, orgUnit: DE-OPS-4 }
+        - { rating: 2, compa: 0.95, pct: 1.0, orgUnit: DE-OPS-4 }
+        - { rating: 5, compa: 0.95, pct: 5.5, gender: F, orgUnit: DE-OPS-4 }
+        - { rating: 5, compa: 0.95, pct: 5.5, gender: F, orgUnit: DE-OPS-4 }
+        - { rating: 5, compa: 0.95, pct: 5.5, orgUnit: DE-OPS-4 }
+        - { rating: 5, compa: 0.95, pct: 5.5, orgUnit: DE-OPS-4 }
+        - { rating: 5, compa: 0.95, pct: 5.5, orgUnit: DE-OPS-4 }
+        - { rating: 5, compa: 0.95, pct: 5.5, orgUnit: DE-OPS-4 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Weighting by the smaller group: rating 4 (1 woman vs 1 man) differs by 1.5 points, rating 3
+  # (3 women vs 5 men) by 0.7. Weighted (1 x 1.5 + 3 x 0.7) / 4 = 0.9: below 1.0, no finding.
+  # Budget 3.36%.
+  - id: h-mc-016
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 4, compa: 0.85, pct: 4.5, gender: F }
+        - { rating: 4, compa: 0.85, pct: 6.0 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F }
+        - { rating: 3, compa: 0.95, pct: 3.2 }
+        - { rating: 3, compa: 0.95, pct: 3.2 }
+        - { rating: 3, compa: 0.95, pct: 3.2 }
+        - { rating: 3, compa: 0.95, pct: 3.2 }
+        - { rating: 3, compa: 0.95, pct: 3.2 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # One unit with every kind of finding: rating-1 increase, an L4 pushed over the band maximum,
+  # a woman below her range, a man above his range without a reason, cost 3.63% of payroll, and
+  # women 1.375 points below men (rating 4: 1.75 x 2, rating 3: 1.0 x 2, total weight 4).
+  - id: h-mc-017
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 1, compa: 0.95, pct: 2.0, reason: "Took over the night shift rota", orgUnit: DE-OPS-5 }
+        - { rating: 3, compa: 1.18, pct: 2.0, level: L4, orgUnit: DE-OPS-5 }
+        - { rating: 4, compa: 0.92, pct: 3.0, gender: F, orgUnit: DE-OPS-5 }
+        - { rating: 4, compa: 0.92, pct: 3.5, gender: F, orgUnit: DE-OPS-5 }
+        - { rating: 4, compa: 0.92, pct: 5.0, orgUnit: DE-OPS-5 }
+        - { rating: 4, compa: 0.92, pct: 5.0, orgUnit: DE-OPS-5 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-5 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-5 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-5 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-5 }
+        - { rating: 5, compa: 0.85, pct: 9.0, orgUnit: DE-OPS-5 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [rating_one_increase, above_band_max, below_guideline, above_guideline, budget_exceeded, equity_gap] }
+
+  # A 0.6 FTE employee: the band maximum is on full-time base pay, so 1.19 x 1.015 = 1.2079 is
+  # above it although the actual (part-time) pay is far below.
+  - id: h-mc-018
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 1.19, pct: 1.5, fte: 0.6 }
+        - { rating: 3, compa: 0.95, pct: 3.0 }
+        - { rating: 3, compa: 0.95, pct: 3.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [above_band_max] }
+
+  # Budget weighted by actual base pay: the 7.0% goes to a 0.5 FTE (21,420 actual), so the unit
+  # costs 3.32% (it would be 3.89% if full-time pay were used).
+  - id: h-mc-019
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 5, compa: 0.85, pct: 7.0, fte: 0.5, orgUnit: DE-OPS-6 }
+        - { rating: 3, compa: 0.95, pct: 2.5, orgUnit: DE-OPS-6 }
+        - { rating: 3, compa: 0.95, pct: 2.5, orgUnit: DE-OPS-6 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # A unit mixing Berlin and Lisbon: unweighted 3.8%, but the Lisbon midpoint is 31,200 against
+  # 50,400 in Berlin, so the weighted cost is 3.31%.
+  - id: h-mc-020
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 1.05, pct: 2.0, orgUnit: PT-OPS-1 }
+        - { rating: 3, compa: 1.05, pct: 2.0, orgUnit: PT-OPS-1 }
+        - { rating: 4, compa: 0.88, pct: 5.0, location: Lisbon, orgUnit: PT-OPS-1 }
+        - { rating: 4, compa: 0.88, pct: 5.0, location: Lisbon, orgUnit: PT-OPS-1, gender: F }
+        - { rating: 4, compa: 0.88, pct: 5.0, location: Lisbon, orgUnit: PT-OPS-1 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # 0.89 is below 0.90 (range 1.0-2.0, so 0.9 is below); 0.90 is in 0.90-1.00 (0.5 is inside);
+  # 1.11 is above 1.10 (range 2.0-3.0, so 3.1 is above, with a reason).
+  - id: h-mc-021
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 2, compa: 0.89, pct: 0.9 }
+        - { rating: 2, compa: 0.90, pct: 0.5 }
+        - { rating: 4, compa: 1.11, pct: 3.1, reason: "Critical skill for the electric fleet; market data attached" }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [below_guideline, above_guideline] }
+
+  # Women in one org unit and men in another are never compared, however different the proposals.
+  - id: h-mc-022
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-7 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-7 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-7 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, orgUnit: DE-OPS-7 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-8 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-8 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-8 }
+        - { rating: 3, compa: 0.95, pct: 3.5, orgUnit: DE-OPS-8 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Women 1.0 above men at rating 3 and 1.0 below at rating 4: the weighted gap is 0, not 1.0.
+  - id: h-mc-023
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.95, pct: 3.5, gender: F }
+        - { rating: 3, compa: 0.95, pct: 3.5, gender: F }
+        - { rating: 3, compa: 0.95, pct: 2.5 }
+        - { rating: 3, compa: 0.95, pct: 2.5 }
+        - { rating: 4, compa: 1.05, pct: 3.0, gender: F }
+        - { rating: 4, compa: 1.05, pct: 3.0, gender: F }
+        - { rating: 4, compa: 1.05, pct: 4.0 }
+        - { rating: 4, compa: 1.05, pct: 4.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }
+
+  # Engineering L4 in Hamburg: 4 women vs 4 men at rating 3, 1.0 point apart (weight 4): equity
+  # gap. A separate operations unit is inside the guideline but costs 6.75%.
+  - id: h-mc-024
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 2.5, gender: F, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 3.5, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 3.5, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 3.5, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 3, compa: 0.95, pct: 3.5, family: engineering, level: L4, location: Hamburg, orgUnit: DE-ENG-1 }
+        - { rating: 5, compa: 0.88, pct: 7.5, orgUnit: DE-OPS-9 }
+        - { rating: 4, compa: 0.89, pct: 6.0, orgUnit: DE-OPS-9 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [equity_gap, budget_exceeded] }
+
+  # Compa exactly 1.00 with increases that are inside both neighbouring ranges: no finding.
+  - id: h-mc-025
+    build:
+      fn: scripts/testkit.ts#cycle
+      rows:
+        - { rating: 3, compa: 1.00, pct: 3.0 }
+        - { rating: 4, compa: 1.00, pct: 3.5 }
+        - { rating: 5, compa: 1.00, pct: 5.0 }
+        - { rating: 2, compa: 1.00, pct: 1.0 }
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      same_set: { "findings[].code": [] }

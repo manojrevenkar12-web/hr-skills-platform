@@ -34,6 +34,11 @@ const SECRETS: [string, RegExp][] = [
   ["credential assignment", /(api[_-]?key|password|secret)\s*[:=]\s*["'][^"'\s]{8,}["']/i],
 ];
 
+/** Personal data or secrets in free text: what lint refuses in skills, and the API refuses in feedback. */
+export function findSensitive(text: string): string[] {
+  return [...PERSONAL_DATA, ...SECRETS].filter(([, re]) => re.test(text)).map(([what]) => what);
+}
+
 export function lint(skill: Skill, opts: LintOptions): LintFinding[] {
   const out: LintFinding[] = [];
   const err = (rule: string, message: string, file?: string) => out.push({ rule, severity: "error", message, file });

@@ -5,7 +5,7 @@ import { z } from "zod";
  * It is the part of a skill other code depends on, so it is what versioning protects
  * (compat.ts) and what the harness enforces at run time.
  */
-const JsonSchema: z.ZodType<Record<string, unknown>> = z.record(z.unknown());
+const JsonSchema: z.ZodType<Record<string, unknown>> = z.record(z.string(), z.unknown());
 
 export const VALIDATORS = [
   "schema", // the output matches `output`
@@ -31,7 +31,7 @@ export const Contract = z
     audience: z.array(z.enum(ROLES)).min(1),
     inputs: JsonSchema,
     output: JsonSchema,
-    scripts: z.record(z.object({ file: z.string(), export: z.string(), description: z.string().min(10) })).default({}),
+    scripts: z.record(z.string(), z.object({ file: z.string(), export: z.string(), description: z.string().min(10) })).default({}),
     /** platform tools the model may call besides the skill's scripts, e.g. mcp:job_architecture */
     tools: z.array(z.string()).default([]),
     validators: z.array(z.enum(VALIDATORS)).min(1),
@@ -42,7 +42,7 @@ export const Contract = z
       golden_pass_rate: z.number().min(0).max(1),
       fault_catch_rate: z.number().min(0).max(1),
       /** optional metric thresholds, e.g. { level_exact: 0.8 } */
-      metrics: z.record(z.number()).default({}),
+      metrics: z.record(z.string(), z.number()).default({}),
     }),
   })
   .strict();

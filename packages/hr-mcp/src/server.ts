@@ -106,7 +106,7 @@ export function createHrMcpServer(opts: HrMcpOptions): McpServer {
       const name = scriptToolName(skill.name, id);
       register(
         name,
-        { description: `${skill.name}: ${s.description}`, inputSchema: { args: z.record(z.unknown()).describe("the script's arguments as JSON") } },
+        { description: `${skill.name}: ${s.description}`, inputSchema: { args: z.record(z.string(), z.unknown()).describe("the script's arguments as JSON") } },
         audited(name, async ({ args }: { args: Record<string, unknown> }) => {
           const fn = await loadScript(skill, id);
           const value = await fn(args ?? {}, { source: opts.source });
