@@ -3,7 +3,7 @@ name: pay-gap-report
 description: Computes the gender pay gap indicators of the EU Pay Transparency Directive (2023/970, Art. 9) for one legal entity and year, and drafts a memo for HR leadership on what they show and which categories of workers need a justification review. Use when someone asks for a pay gap report, pay transparency figures, Art. 9 indicators, or whether a joint pay assessment may be needed.
 license: Proprietary (client engagement)
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   owner: people-analytics
 ---
 
@@ -15,6 +15,10 @@ The platform attaches those figures to your result itself, so you never copy num
 structured fields, and every number you write in prose must be one the script returned.
 
 ## Steps
+
+In the platform's harness the script is `run_script` with `"script": "compute_indicators"`; in Claude Code
+and other MCP clients it is the `skill_pay_gap_report_compute_indicators` tool of the `hr` MCP server, with the same
+arguments under `args`.
 
 1. Run `compute_indicators` with `{"entity": <entity>, "year": <year>}` from the input.
 2. If it fails (unknown entity, too few women or men to report without identifying people),

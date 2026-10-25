@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "hr": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/packages/hr-mcp/dist/stdio.js"],
+      "env": { "HSP_ROOT": "${CLAUDE_PLUGIN_ROOT}", "HSP_ROLE": "people_analytics" }
+    }
+  }
+}

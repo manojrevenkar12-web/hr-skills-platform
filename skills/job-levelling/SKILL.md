@@ -16,6 +16,10 @@ architecture and propose a family and level. A compensation partner decides; you
 
 ## Steps
 
+In the platform's harness the script is `run_script` with `"script": "extract_signals"`; in Claude Code
+and other MCP clients it is the `skill_job_levelling_extract_signals` tool of the `hr` MCP server, with the same
+arguments under `args`.
+
 1. Run `extract_signals` with `{"jobDescription": <the description>}`.
 2. Call `job_architecture` for the families and the level definitions.
 3. Read [the levelling guide](references/levelling-guide.md) for how to weigh conflicting

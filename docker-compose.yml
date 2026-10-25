@@ -1,0 +1,25 @@
+# The whole platform with the invented demo company:
+#   docker compose up --build   then open http://localhost:3000 and pick a demo person.
+# The model is simulated unless AI_PROVIDER and its settings are given (see README).
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_PASSWORD: postgres, POSTGRES_DB: hsp }
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U postgres"], interval: 2s, retries: 30 }
+    volumes: [db:/var/lib/postgresql/data]
+
+  app:
+    build: .
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/hsp
+      DEMO_LOGIN: "1"
+      AI_PROVIDER: ${AI_PROVIDER:-}
+      AI_MODEL: ${AI_MODEL:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      AI_BASE_URL: ${AI_BASE_URL:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+    ports: ["3000:3000"]
+
+volumes:
+  db:

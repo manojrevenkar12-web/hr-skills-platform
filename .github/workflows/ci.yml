@@ -1,0 +1,78 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  platform:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_PASSWORD: postgres, POSTGRES_DB: hsp_test }
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U postgres" --health-interval 2s --health-retries 30
+    env:
+      TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/hsp_test
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # the first-run check reads the history of the held-out reports
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: production dependencies have no known high vulnerabilities
+        run: npm audit --omit=dev --audit-level=high
+      - name: build and typecheck (packages, API, skills)
+        run: npm run build && npx tsc -p apps/api && npx tsc -p skills/tsconfig.json
+      - name: every skill meets the review standard
+        run: npm run hsp -- lint
+      - name: no released skill changed without the version bump its changes need
+        run: npm run hsp -- release-check
+      - name: tests (unit, MCP over stdio and HTTP, API on PostgreSQL)
+        run: npx vitest run
+      - name: golden cases and injected faults, then the gate
+        run: npm run hsp -- eval ci && npm run hsp -- gate ci
+      - name: recorded first runs and releases are never rewritten
+        run: |
+          for f in reports/evals/heldout-*.json reports/evals/release-*.json; do
+            n=$(git log --format=%H -- "$f" | wc -l)
+            [ "$n" -le 1 ] || { echo "$f was changed after it was recorded"; exit 1; }
+          done
+          git diff --exit-code -- reports/evals/heldout-* reports/evals/release-* registry/
+
+  console:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - working-directory: apps/console
+        run: npx tsc --noEmit -p . && npx eslint src && npx vitest run --config vite.config.ts && npx vite build
+
+  image:
+    needs: [platform, console]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - run: docker build -t hsp:ci .
+      - name: boot it on PostgreSQL, sign in, run a skill end to end
+        run: |
+          docker network create t
+          docker run -d --name db --network t -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=hsp postgres:16
+          for i in $(seq 1 30); do docker exec db pg_isready -U postgres && break; sleep 1; done
+          docker run -d --name app --network t -p 3000:3000 -e DATABASE_URL=postgres://postgres:postgres@db:5432/hsp -e DEMO_LOGIN=1 hsp:ci
+          for i in $(seq 1 60); do curl -fs localhost:3000/health && break; sleep 2; done
+          TOKEN=$(curl -fs -X POST localhost:3000/api/session/demo -H 'content-type: application/json' -d '{"email":"farid@nordwerk.example"}' | node -pe 'JSON.parse(require("fs").readFileSync(0)).token')
+          RUN=$(curl -fs -X POST localhost:3000/api/runs -H "authorization: Bearer $TOKEN" -H 'content-type: application/json' -d '{"skill":"pay-gap-report","input":{"entity":"nordwerk-de","year":2026}}' | node -pe 'JSON.parse(require("fs").readFileSync(0)).id')
+          for i in $(seq 1 30); do S=$(curl -fs localhost:3000/api/runs/$RUN -H "authorization: Bearer $TOKEN" | node -pe 'JSON.parse(require("fs").readFileSync(0)).status'); [ "$S" = ok ] && break; sleep 1; done
+          echo "run status: $S"; [ "$S" = ok ]
+          curl -fs -H 'accept: text/html' localhost:3000/skills | grep -q "Skills Workbench"
+      - name: show the app's log when it did not boot
+        if: failure()
+        run: docker logs app 2>&1 | tail -40 | sed 's/^/::warning::/'

@@ -1,12 +1,12 @@
 # Evaluation: dev
 
-Set `golden`, recorded 2026-10-25T14:57:43.714Z at 6f7d8d4.
+Set `golden`, recorded 2026-10-25T14:59:00.149Z at 6e133f7.
 
 | Skill | Version | Model | Cases passed | Injected faults caught | Metrics |
 |---|---|---|---:|---:|---|
 | job-levelling | 1.0.0 | simulated-1 | 16/16 | 75/75 | level_exact 73.3%, level_within_one 100.0%, family_exact 100.0%, review_rate 0.0% |
-| merit-cycle-check | 1.0.0 | simulated-1 | 13/13 | 39/39 |  |
-| pay-gap-report | 1.0.0 | simulated-1 | 13/13 | 48/48 |  |
+| merit-cycle-check | 1.0.1 | simulated-1 | 13/13 | 39/39 |  |
+| pay-gap-report | 1.0.1 | simulated-1 | 13/13 | 48/48 |  |
 
 ### job-levelling: faults by kind
 

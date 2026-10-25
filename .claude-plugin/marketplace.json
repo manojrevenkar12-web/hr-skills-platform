@@ -1,0 +1,11 @@
+{
+  "name": "hr-skills-platform",
+  "owner": { "name": "Manoj Kumar Prakash" },
+  "plugins": [
+    {
+      "name": "hr-skills",
+      "source": "./",
+      "description": "Released HR and compensation skills and the governed HR MCP server."
+    }
+  ]
+}

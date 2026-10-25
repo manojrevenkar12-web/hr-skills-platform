@@ -5,3 +5,4 @@ coverage/
 .env
 apps/console/dist/
 reports/evals/ci-*
+reports/evals/ci.*

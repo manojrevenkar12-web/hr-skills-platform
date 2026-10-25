@@ -1,8 +1,8 @@
 {
   "label": "dev",
   "set": "golden",
-  "recordedAt": "2026-10-25T14:57:43.714Z",
-  "git": "6f7d8d4",
+  "recordedAt": "2026-10-25T14:59:00.149Z",
+  "git": "6e133f7",
   "skills": [
     {
       "skill": "job-levelling",
@@ -15,7 +15,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 101,
+          "ms": 87,
           "truth": {
             "family": "finance",
             "level": "L1"
@@ -27,7 +27,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 17,
+          "ms": 14,
           "truth": {
             "family": "operations",
             "level": "L2"
@@ -39,7 +39,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 11,
+          "ms": 8,
           "truth": {
             "family": "operations",
             "level": "L3"
@@ -51,7 +51,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6,
+          "ms": 9,
           "truth": {
             "family": "engineering",
             "level": "L3"
@@ -63,7 +63,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 8,
+          "ms": 7,
           "truth": {
             "family": "engineering",
             "level": "L4"
@@ -75,7 +75,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 10,
+          "ms": 7,
           "truth": {
             "family": "people",
             "level": "L2"
@@ -87,7 +87,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6,
+          "ms": 7,
           "truth": {
             "family": "operations",
             "level": "L5"
@@ -99,7 +99,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6,
+          "ms": 14,
           "truth": {
             "family": "sales",
             "level": "L6"
@@ -111,7 +111,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 8,
+          "ms": 9,
           "truth": {
             "family": "sales",
             "level": "L3"
@@ -123,7 +123,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6,
+          "ms": 5,
           "truth": {
             "family": "people",
             "level": "L3"
@@ -135,7 +135,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6,
+          "ms": 10,
           "truth": {
             "family": "finance",
             "level": "L5"
@@ -147,7 +147,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 7,
+          "ms": 5,
           "truth": {
             "family": "engineering",
             "level": "L5"
@@ -159,7 +159,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5,
+          "ms": 7,
           "truth": {
             "family": "operations",
             "level": "L1"
@@ -171,7 +171,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 7,
+          "ms": 5,
           "truth": {
             "family": "finance",
             "level": "L4"
@@ -925,7 +925,7 @@
     },
     {
       "skill": "merit-cycle-check",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "model": "simulated-1",
       "cases": [
         {
@@ -935,7 +935,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 14
+          "ms": 15
         },
         {
           "id": "mc-02",
@@ -944,7 +944,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5
+          "ms": 4
         },
         {
           "id": "mc-03",
@@ -953,7 +953,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 6
         },
         {
           "id": "mc-04",
@@ -962,7 +962,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 9
+          "ms": 8
         },
         {
           "id": "mc-05",
@@ -971,7 +971,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 9
+          "ms": 8
         },
         {
           "id": "mc-06",
@@ -989,7 +989,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 8
+          "ms": 4
         },
         {
           "id": "mc-08",
@@ -998,7 +998,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5
+          "ms": 4
         },
         {
           "id": "mc-09",
@@ -1007,7 +1007,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6
+          "ms": 4
         },
         {
           "id": "mc-10",
@@ -1016,7 +1016,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 6
         },
         {
           "id": "mc-11",
@@ -1025,7 +1025,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 10
+          "ms": 11
         },
         {
           "id": "mc-12",
@@ -1043,7 +1043,7 @@
           "problems": [],
           "status": "failed",
           "findings": [],
-          "ms": 4
+          "ms": 6
         }
       ],
       "passRate": 1,
@@ -1496,7 +1496,7 @@
     },
     {
       "skill": "pay-gap-report",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "model": "simulated-1",
       "cases": [
         {
@@ -1506,7 +1506,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 15
+          "ms": 13
         },
         {
           "id": "pg-02",
@@ -1515,7 +1515,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 4
         },
         {
           "id": "pg-03",
@@ -1560,7 +1560,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 2
         },
         {
           "id": "pg-08",
@@ -1569,7 +1569,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 5
         },
         {
           "id": "pg-09",
@@ -1587,7 +1587,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 9
+          "ms": 5
         },
         {
           "id": "pg-11",
@@ -1596,7 +1596,7 @@
           "problems": [],
           "status": "failed",
           "findings": [],
-          "ms": 2
+          "ms": 7
         },
         {
           "id": "pg-12",
@@ -1614,7 +1614,7 @@
           "problems": [],
           "status": "failed",
           "findings": [],
-          "ms": 5
+          "ms": 7
         }
       ],
       "passRate": 1,

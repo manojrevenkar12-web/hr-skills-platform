@@ -1,0 +1,11 @@
+{
+  "name": "hr-skills",
+  "displayName": "HR Skills",
+  "version": "0.2.0",
+  "description": "Released HR and compensation skills (EU pay gap report, merit cycle check, job levelling) and the governed HR MCP server they run on.",
+  "author": { "name": "Manoj Kumar Prakash", "url": "https://github.com/manojrevenkar12-web" },
+  "repository": "https://github.com/manojrevenkar12-web/hr-skills-platform",
+  "license": "UNLICENSED",
+  "keywords": ["hr", "compensation", "pay-transparency", "mcp", "skills"],
+  "mcpServers": "./.mcp.json"
+}

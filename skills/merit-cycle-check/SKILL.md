@@ -3,7 +3,7 @@ name: merit-cycle-check
 description: Checks the merit-increase proposals of a pay review cycle against the merit guideline, salary bands, budgets and a same-level, same-rating comparison of women's and men's proposals, and drafts one note per org unit telling its manager what to fix. Use when a compensation partner asks to review, check or sign off merit proposals or a salary review cycle.
 license: Proprietary (client engagement)
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   owner: compensation
 ---
 
@@ -14,6 +14,10 @@ and a summary per org unit. Your job is to turn the findings into clear notes fo
 The platform attaches the findings and the summary to your result; you write only the notes.
 
 ## Steps
+
+In the platform's harness the script is `run_script` with `"script": "check_proposals"`; in Claude Code
+and other MCP clients it is the `skill_merit_cycle_check_check_proposals` tool of the `hr` MCP server, with the same
+arguments under `args`.
 
 1. Run `check_proposals` with `{"entity": ..., "cycle": ...}` and, if the input names one,
    `"orgUnit"`.

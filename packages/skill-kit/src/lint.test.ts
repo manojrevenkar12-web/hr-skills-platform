@@ -31,7 +31,7 @@ describe("the review standard", () => {
   });
 
   it("keeps one version in the contract, the frontmatter and the changelog", () => {
-    expect(rulesAfter("contract.yaml", (s) => s.replace("version: 1.0.0", "version: 1.1.0"))).toEqual(expect.arrayContaining(["S05", "S09"]));
+    expect(rulesAfter("contract.yaml", (s) => s.replace(/^version: .*$/m, "version: 1.9.0"))).toEqual(expect.arrayContaining(["S05", "S09"]));
   });
 
   it("requires every script to exist, be tested and be named in the instructions", () => {
