@@ -1,0 +1,7 @@
+# Salary band structure (fictional): band midpoint = level midpoint × family factor × location
+# factor, rounded to 100 EUR; min = 80% and max = 120% of the midpoint. Annual full-time base pay.
+level_mid: { L1: 38000, L2: 46000, L3: 56000, L4: 70000, L5: 88000, L6: 110000 }
+family_factor: { engineering: 1.12, operations: 0.90, finance: 1.05, people: 0.95, sales: 1.00 }
+location_factor: { Berlin: 1.00, Hamburg: 1.03, Lisbon: 0.62, Porto: 0.58 }
+min_pct_of_mid: 80
+max_pct_of_mid: 120

@@ -1,0 +1,50 @@
+version: 1.0.0
+owner: people-analytics
+classification: aggregate
+audience: [people_analytics, comp_partner, hr_leadership]
+maxTurns: 6
+allowedNumbers: [5, 6, 7, 9, 10, 1, 2, 3, 4, 2023, 970]
+inputs:
+  type: object
+  additionalProperties: false
+  required: [entity, year]
+  properties:
+    entity: { type: string, minLength: 1 }
+    year: { type: integer, minimum: 2020, maximum: 2100 }
+scripts:
+  compute_indicators:
+    file: scripts/compute.ts
+    export: computeIndicators
+    description: "Art. 9 indicators, categories of workers and 5% findings for one entity and year; group figures only, small groups suppressed."
+tools: []
+validators: [schema, aggregate_policy, grounded_numbers, covers_findings, no_invented_findings]
+output:
+  type: object
+  additionalProperties: false
+  required: [entity, year, population, indicators, categories, findings, memo, findingsAddressed, caveats]
+  properties:
+    entity: { type: string, x-from: compute_indicators.entity }
+    year: { type: integer, x-from: compute_indicators.year }
+    population: { type: object, x-from: compute_indicators.population }
+    indicators:
+      type: object
+      x-from: compute_indicators.indicators
+      required: [meanGapPct, medianGapPct, variableMeanGapPct, variableMedianGapPct, receivingVariable, quartiles]
+    categories: { type: array, x-from: compute_indicators.categories }
+    findings: { type: array, x-from: compute_indicators.findings }
+    memo:
+      type: string
+      minLength: 300
+      maxLength: 4000
+      x-prose: true
+      description: "150-400 words for HR leadership: headline gaps, quartiles, every finding by id, next steps."
+    findingsAddressed:
+      type: array
+      items: { type: string, pattern: "^PG-\\d{3}$" }
+    caveats:
+      type: array
+      minItems: 1
+      items: { type: string, minLength: 20, x-prose: true }
+acceptance:
+  golden_pass_rate: 1.0
+  fault_catch_rate: 1.0

@@ -1,0 +1,104 @@
+# Golden cases for pay-gap-report. Each fixture is small enough to check by hand; the expected
+# figures below are the hand calculation, not a copy of the script's output.
+# expect: status, equals (path: value, numbers within 0.05), includes (path: [values]),
+#         excludes, range (path: [lo, hi]). Paths: a.b, a[].b (every item), a.length.
+cases:
+  - id: pg-01
+    title: Women paid 20/h and men 25/h in one category
+    fixture: fixtures/twenty-pct.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 20, indicators.medianGapPct: 20, findings.length: 1, "findings[].category": [operations/L3] }
+      equals_list: { "indicators.quartiles[].womenPct": [100, 100, 0, 0] }
+
+  - id: pg-02
+    title: Equal pay, nothing to report
+    fixture: fixtures/equal-pay.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 0, findings.length: 0 }
+
+  - id: pg-03
+    title: A category with five women is suppressed, even with a large gap
+    fixture: fixtures/small-category.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { findings.length: 0 }
+      includes: { "categories[].suppressed": [true] }
+
+  - id: pg-04
+    title: A 4.9% gap is not a finding
+    fixture: fixtures/just-below.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 4.9, findings.length: 0 }
+
+  - id: pg-05
+    title: A 5.0% gap is a finding
+    fixture: fixtures/exactly-five.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 5, findings.length: 1 }
+
+  - id: pg-06
+    title: A gap in women's favour is a finding too
+    fixture: fixtures/women-higher.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: -6, findings.length: 1 }
+
+  - id: pg-07
+    title: Only men receive variable pay; basic pay is equal
+    fixture: fixtures/variable-only.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.variableMeanGapPct: 100, indicators.receivingVariable.womenPct: 0, indicators.receivingVariable.menPct: 100, indicators.meanGapPct: 4.8, findings.length: 0 }
+
+  - id: pg-08
+    title: Two categories, one with a 10% gap; overall gap below 5%
+    fixture: fixtures/two-categories.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 4.4, findings.length: 1, "findings[].category": [operations/L2], "findings[].totalMeanGapPct": [10] }
+
+  - id: pg-09
+    title: The synthetic German entity, with its injected operations L3 gap
+    input: { entity: nordwerk-de, year: 2026 }
+    expect:
+      status: ok
+      includes: { "findings[].category": [operations/L3] }
+      range: { indicators.meanGapPct: [5, 30] }
+
+  - id: pg-10
+    title: The synthetic Portuguese entity reports without leaking anyone
+    input: { entity: nordwerk-pt, year: 2026 }
+    expect:
+      status: ok
+
+  - id: pg-11
+    title: Too few women to report without identifying people
+    fixture: fixtures/too-few-women.json
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: failed
+
+  - id: pg-12
+    title: A recruiter may not run the pay gap report
+    role: recruiter
+    input: { entity: nordwerk-de, year: 2026 }
+    expect:
+      status: refused
+
+  - id: pg-13
+    title: An unknown entity fails plainly
+    input: { entity: nordwerk-fr, year: 2026 }
+    expect:
+      status: failed

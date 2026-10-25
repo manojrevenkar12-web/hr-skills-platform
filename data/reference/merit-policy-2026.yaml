@@ -1,0 +1,12 @@
+# Merit cycle 2026 guideline (fictional). Ranges are % increases of annual base pay, by the last
+# performance rating and where current pay sits in the band (compa-ratio = base / band midpoint).
+cycle: "2026"
+budgetPct: 3.5
+reasonRequiredOutsideGuideline: true
+equityGapPp: 1.0
+matrix:
+  "1": { below_90: [0, 0], 90_to_100: [0, 0], 100_to_110: [0, 0], above_110: [0, 0] }
+  "2": { below_90: [1.0, 2.0], 90_to_100: [0.5, 1.5], 100_to_110: [0, 1.0], above_110: [0, 0.5] }
+  "3": { below_90: [3.0, 4.5], 90_to_100: [2.5, 3.5], 100_to_110: [2.0, 3.0], above_110: [1.0, 2.0] }
+  "4": { below_90: [4.5, 6.0], 90_to_100: [3.5, 5.0], 100_to_110: [3.0, 4.0], above_110: [2.0, 3.0] }
+  "5": { below_90: [6.0, 8.0], 90_to_100: [5.0, 6.5], 100_to_110: [4.0, 5.5], above_110: [3.0, 4.0] }

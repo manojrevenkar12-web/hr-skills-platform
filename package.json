@@ -1,0 +1,36 @@
+{
+  "name": "hr-skills-platform",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -b packages/hr-data packages/skill-kit packages/hr-mcp packages/harness packages/evals",
+    "typecheck": "tsc -b packages/hr-data packages/skill-kit packages/hr-mcp packages/harness packages/evals && tsc -p skills/tsconfig.json",
+    "test": "vitest run",
+    "hsp": "tsx --conditions=source packages/evals/src/cli.ts",
+    "lint:skills": "npm run -s hsp -- lint",
+    "evals": "npm run -s hsp -- eval",
+    "gate": "npm run -s hsp -- gate"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/pg": "^8.11.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "ajv": "^8.17.1",
+    "pg": "^8.13.1",
+    "yaml": "^2.6.1",
+    "zod": "^3.25.76"
+  }
+}

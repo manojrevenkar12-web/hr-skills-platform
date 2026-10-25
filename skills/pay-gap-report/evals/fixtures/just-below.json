@@ -1,0 +1,276 @@
+{
+ "entities": [
+  {
+   "id": "test-co",
+   "name": "Test Co (fictional)",
+   "country": "DE",
+   "currency": "EUR",
+   "fullTimeHours": 1720
+  }
+ ],
+ "employees": [
+  {
+   "id": "E-00001",
+   "entity": "test-co",
+   "gender": "F",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00002",
+   "entity": "test-co",
+   "gender": "F",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00003",
+   "entity": "test-co",
+   "gender": "F",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00004",
+   "entity": "test-co",
+   "gender": "F",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00005",
+   "entity": "test-co",
+   "gender": "F",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00006",
+   "entity": "test-co",
+   "gender": "F",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00007",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00008",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00009",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00010",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00011",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00012",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  }
+ ],
+ "pay": [
+  {
+   "employeeId": "E-00001",
+   "year": 2026,
+   "base": 95100,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00002",
+   "year": 2026,
+   "base": 95100,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00003",
+   "year": 2026,
+   "base": 95100,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00004",
+   "year": 2026,
+   "base": 95100,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00005",
+   "year": 2026,
+   "base": 95100,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00006",
+   "year": 2026,
+   "base": 95100,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00007",
+   "year": 2026,
+   "base": 100000,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00008",
+   "year": 2026,
+   "base": 100000,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00009",
+   "year": 2026,
+   "base": 100000,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00010",
+   "year": 2026,
+   "base": 100000,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00011",
+   "year": 2026,
+   "base": 100000,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  },
+  {
+   "employeeId": "E-00012",
+   "year": 2026,
+   "base": 100000,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1000
+  }
+ ],
+ "bands": [],
+ "proposals": [],
+ "meritPolicy": {
+  "cycle": "2026",
+  "matrix": {},
+  "budgetPct": 3.5,
+  "reasonRequiredOutsideGuideline": true,
+  "equityGapPp": 1
+ }
+}

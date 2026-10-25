@@ -1,0 +1,10 @@
+{
+  "jointAssessmentTriggerPct": 5,
+  "minPerGender": 6,
+  "minForAdjustment": 12,
+  "_sources": {
+    "jointAssessmentTriggerPct": "Directive (EU) 2023/970, Art. 10(1)(a): a difference of at least 5% in any category of workers",
+    "minPerGender": "German expert commission (Nov 2025) recommendation: no comparison below six women and six men",
+    "minForAdjustment": "platform choice: no regression on fewer than 12 people in a category"
+  }
+}

@@ -1,0 +1,51 @@
+# Nordwerk Mobility (fictional) job architecture: five families, six levels. Levels are defined by
+# scope, autonomy, complexity and impact, not by title or years; years are only typical.
+families:
+  - { id: engineering, name: Engineering, description: "Designs, builds and runs the software and data systems." }
+  - { id: operations, name: Operations, description: "Runs depots, fleet, dispatch and maintenance." }
+  - { id: finance, name: Finance, description: "Accounting, controlling, treasury and procurement." }
+  - { id: people, name: People, description: "Recruiting, HR business partnering, payroll and learning." }
+  - { id: sales, name: Sales, description: "Sells and manages business customer accounts." }
+levels:
+  - level: L1
+    title: Entry
+    scope: "Own tasks, assigned and checked by others."
+    autonomy: "Follows defined procedures; asks when a case is not covered."
+    complexity: "Routine, well-defined work."
+    impact: "Own output."
+    typicalExperienceYears: [0, 2]
+  - level: L2
+    title: Developing
+    scope: "A stream of tasks within a team's process."
+    autonomy: "Works independently on routine cases; escalates exceptions."
+    complexity: "Varied problems with known solutions."
+    impact: "Own work and that of close colleagues."
+    typicalExperienceYears: [1, 4]
+  - level: L3
+    title: Professional
+    scope: "A complete area of work or a small project."
+    autonomy: "Plans own work; chooses methods; trusted to decide within the area."
+    complexity: "Problems that need analysis and judgement."
+    impact: "The team's results; may guide L1-L2 colleagues informally."
+    typicalExperienceYears: [3, 7]
+  - level: L4
+    title: Senior
+    scope: "Several areas or a significant project across teams; or leads a small team."
+    autonomy: "Sets priorities for the area; defines how work is done."
+    complexity: "Complex, ambiguous problems; designs new approaches."
+    impact: "A department's results; coaches others; may manage up to about 8 people."
+    typicalExperienceYears: [6, 12]
+  - level: L5
+    title: Lead
+    scope: "A function or a department; or a company-wide technical or professional domain."
+    autonomy: "Sets direction and standards; accountable for budget or headcount."
+    complexity: "Strategic problems spanning functions."
+    impact: "Business results of a function; manages managers or is the recognised expert."
+    typicalExperienceYears: [10, 18]
+  - level: L6
+    title: Head
+    scope: "A business unit or the whole company in one domain."
+    autonomy: "Sets strategy; answers to the executive board."
+    complexity: "Enterprise-wide, long-horizon decisions."
+    impact: "Company results; represents the company externally."
+    typicalExperienceYears: [14, 30]
