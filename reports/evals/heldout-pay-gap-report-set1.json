@@ -1,0 +1,179 @@
+{
+  "label": "heldout-pay-gap-report-set1",
+  "set": "pay-gap-report/evals/heldout/set1",
+  "recordedAt": "2026-10-25T14:46:11.281Z",
+  "git": "09f20a1",
+  "skills": [
+    {
+      "skill": "pay-gap-report",
+      "version": "1.0.0",
+      "model": "simulated-1",
+      "cases": [
+        {
+          "id": "h-pg-001",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 116
+        },
+        {
+          "id": "h-pg-002",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7
+        },
+        {
+          "id": "h-pg-003",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "h-pg-004",
+          "passed": true,
+          "problems": [],
+          "status": "failed",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-005",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "h-pg-006",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 20
+        },
+        {
+          "id": "h-pg-007",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-pg-008",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "h-pg-009",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-010",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-011",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-012",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "h-pg-013",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-014",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-pg-015",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 2
+        },
+        {
+          "id": "h-pg-016",
+          "passed": true,
+          "problems": [],
+          "status": "failed",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-pg-017",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-018",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-pg-019",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7
+        }
+      ],
+      "passRate": 1,
+      "faults": [],
+      "faultCatchRate": null,
+      "byFault": {
+        "invent_number": "0/0",
+        "skip_script": "0/0",
+        "drop_finding": "0/0",
+        "leak_employee": "0/0",
+        "invented_finding": "0/0",
+        "suppressed_figure": "0/0"
+      },
+      "metrics": {}
+    }
+  ]
+}

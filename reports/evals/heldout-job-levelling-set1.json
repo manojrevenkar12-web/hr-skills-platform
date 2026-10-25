@@ -1,0 +1,631 @@
+{
+  "label": "heldout-job-levelling-set1",
+  "set": "job-levelling/evals/heldout/set1",
+  "recordedAt": "2026-10-25T14:46:08.965Z",
+  "git": "09f20a1",
+  "skills": [
+    {
+      "skill": "job-levelling",
+      "version": "1.0.0",
+      "model": "simulated-1",
+      "cases": [
+        {
+          "id": "h-jl-001",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 96,
+          "truth": {
+            "family": "engineering",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-002",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10,
+          "truth": {
+            "family": "engineering",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-003",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "engineering",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-004",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "engineering",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-005",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "engineering",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-006",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "engineering",
+            "level": "L6"
+          }
+        },
+        {
+          "id": "h-jl-007",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "engineering",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-008",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "engineering",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-009",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "engineering",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-010",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "engineering",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-011",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "engineering",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-012",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "engineering",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-013",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "operations",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-014",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10,
+          "truth": {
+            "family": "operations",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-015",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "operations",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-016",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "operations",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-017",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "operations",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-018",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "operations",
+            "level": "L6"
+          }
+        },
+        {
+          "id": "h-jl-019",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "operations",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-020",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 16,
+          "truth": {
+            "family": "operations",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-021",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "operations",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-022",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "operations",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-023",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "finance",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-024",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4,
+          "truth": {
+            "family": "finance",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-025",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4,
+          "truth": {
+            "family": "finance",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-026",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "finance",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-027",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4,
+          "truth": {
+            "family": "finance",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-028",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "finance",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-029",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 12,
+          "truth": {
+            "family": "finance",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-030",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "finance",
+            "level": "L6"
+          }
+        },
+        {
+          "id": "h-jl-031",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "finance",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-032",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "finance",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-033",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "finance",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-034",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "people",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-035",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "people",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-036",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 11,
+          "truth": {
+            "family": "people",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-037",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "people",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-038",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "people",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-039",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 14,
+          "truth": {
+            "family": "people",
+            "level": "L6"
+          }
+        },
+        {
+          "id": "h-jl-040",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "people",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-041",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "people",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-042",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "people",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-043",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "h-jl-044",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "h-jl-045",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "h-jl-046",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-047",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "h-jl-048",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "sales",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "h-jl-049",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L6"
+          }
+        },
+        {
+          "id": "h-jl-050",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "sales",
+            "level": "L1"
+          }
+        }
+      ],
+      "passRate": 1,
+      "faults": [],
+      "faultCatchRate": null,
+      "byFault": {
+        "invented_quote": "0/0",
+        "unknown_level": "0/0",
+        "low_confidence_no_review": "0/0",
+        "invent_number": "0/0",
+        "skip_script": "0/0"
+      },
+      "metrics": {
+        "level_exact": 0.28,
+        "level_within_one": 0.68,
+        "family_exact": 0.82,
+        "review_rate": 0.66
+      }
+    }
+  ]
+}

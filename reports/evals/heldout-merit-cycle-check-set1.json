@@ -1,0 +1,226 @@
+{
+  "label": "heldout-merit-cycle-check-set1",
+  "set": "merit-cycle-check/evals/heldout/set1",
+  "recordedAt": "2026-10-25T14:46:10.108Z",
+  "git": "09f20a1",
+  "skills": [
+    {
+      "skill": "merit-cycle-check",
+      "version": "1.0.0",
+      "model": "simulated-1",
+      "cases": [
+        {
+          "id": "h-mc-001",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 114
+        },
+        {
+          "id": "h-mc-002",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10
+        },
+        {
+          "id": "h-mc-003",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7
+        },
+        {
+          "id": "h-mc-004",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-mc-005",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8
+        },
+        {
+          "id": "h-mc-006",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-mc-007",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-008",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-009",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-mc-010",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-mc-011",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9
+        },
+        {
+          "id": "h-mc-012",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-013",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-014",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-015",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-mc-016",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "h-mc-017",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-018",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-019",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-020",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8
+        },
+        {
+          "id": "h-mc-021",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-022",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-023",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "h-mc-024",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 3
+        },
+        {
+          "id": "h-mc-025",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 3
+        }
+      ],
+      "passRate": 1,
+      "faults": [],
+      "faultCatchRate": null,
+      "byFault": {
+        "skip_script": "0/0",
+        "drop_finding": "0/0",
+        "invent_number": "0/0",
+        "invented_finding": "0/0",
+        "propose_new_pct": "0/0"
+      },
+      "metrics": {}
+    }
+  ]
+}

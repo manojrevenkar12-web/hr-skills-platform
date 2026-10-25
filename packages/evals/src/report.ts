@@ -65,7 +65,7 @@ export function markdown(doc: ReportDoc): string {
       lines.push("", `## ${s.skill}: injected faults that got through`, "");
       for (const f of escaped) lines.push(`- ${f.id}: ${f.fault}`);
     }
-    if (Object.keys(s.byFault).length) {
+    if (s.faults.length) {
       lines.push("", `### ${s.skill}: faults by kind`, "", "| Fault | Caught |", "|---|---:|");
       for (const [f, v] of Object.entries(s.byFault)) lines.push(`| ${f} | ${v} |`);
     }
