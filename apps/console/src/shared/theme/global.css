@@ -1,0 +1,26 @@
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-serif/400.css";
+@import "@fontsource/ibm-plex-serif/400-italic.css";
+@import "./tokens.css";
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading);
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+a { color: var(--model); text-underline-offset: 0.2em; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: var(--rule-mark) solid var(--focus); outline-offset: 2px; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}

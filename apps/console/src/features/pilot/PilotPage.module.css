@@ -1,0 +1,19 @@
+.page { display: grid; gap: var(--space-6); }
+.header { display: grid; gap: var(--space-2); }
+.title { font-size: var(--text-display); line-height: var(--leading-tight); font-weight: var(--weight-semibold); }
+.lead { color: var(--ink-muted); font-size: var(--text-lg); }
+.sectionTitle { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink-muted); }
+.weekly { display: grid; gap: var(--space-3); padding: var(--space-5); border-radius: var(--radius-md); background: var(--surface); border: var(--hairline) solid var(--rule); }
+.bars { display: flex; align-items: flex-end; gap: var(--space-4); height: var(--chart-h); }
+.barCol { display: grid; grid-template-rows: auto 1fr auto; justify-items: center; height: 100%; min-width: var(--space-7); }
+.bar { align-self: end; width: var(--space-6); border-radius: var(--radius-sm) var(--radius-sm) 0 0; background: var(--model); }
+.barValue, .barLabel { font-size: var(--text-sm); color: var(--ink-muted); }
+.skills { display: grid; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.skill { display: grid; gap: var(--space-4); padding: var(--space-5); border-radius: var(--radius-md); background: var(--surface); border: var(--hairline) solid var(--rule); }
+.skillTitle { font-size: var(--text-lg); font-weight: var(--weight-semibold); }
+.figures { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--col-name), 1fr)); gap: var(--space-4); margin: 0; }
+.figures div { display: grid; gap: var(--space-1); }
+.figures dt { font-size: var(--text-sm); color: var(--ink-muted); }
+.figures dd { margin: 0; font-size: var(--text-xl); font-weight: var(--weight-semibold); }
+.figures dd.small { font-size: var(--text-sm); font-weight: var(--weight-regular); color: var(--ink-faint); }
+.issues { font-size: var(--text-sm); color: var(--held); }

@@ -1,0 +1,696 @@
+{
+  "label": "release-pay-gap-report-1.0.0",
+  "set": "golden",
+  "recordedAt": "2026-10-25T14:57:58.462Z",
+  "git": "6f7d8d4",
+  "skills": [
+    {
+      "skill": "pay-gap-report",
+      "version": "1.0.0",
+      "model": "simulated-1",
+      "cases": [
+        {
+          "id": "pg-01",
+          "title": "Women paid 20/h and men 25/h in one category",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 86
+        },
+        {
+          "id": "pg-02",
+          "title": "Equal pay, nothing to report",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "pg-03",
+          "title": "A category with five women is suppressed, even with a large gap",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5
+        },
+        {
+          "id": "pg-04",
+          "title": "A 4.9% gap is not a finding",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10
+        },
+        {
+          "id": "pg-05",
+          "title": "A 5.0% gap is a finding",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "pg-06",
+          "title": "A gap in women's favour is a finding too",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 3
+        },
+        {
+          "id": "pg-07",
+          "title": "Only men receive variable pay; basic pay is equal",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "pg-08",
+          "title": "Two categories, one with a 10% gap; overall gap below 5%",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 4
+        },
+        {
+          "id": "pg-09",
+          "title": "The synthetic German entity, with its injected operations L3 gap",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10
+        },
+        {
+          "id": "pg-10",
+          "title": "The synthetic Portuguese entity reports without leaking anyone",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7
+        },
+        {
+          "id": "pg-11",
+          "title": "Too few women to report without identifying people",
+          "passed": true,
+          "problems": [],
+          "status": "failed",
+          "findings": [],
+          "ms": 2
+        },
+        {
+          "id": "pg-12",
+          "title": "A recruiter may not run the pay gap report",
+          "passed": true,
+          "problems": [],
+          "status": "refused",
+          "findings": [],
+          "ms": 0
+        },
+        {
+          "id": "pg-13",
+          "title": "An unknown entity fails plainly",
+          "passed": true,
+          "problems": [],
+          "status": "failed",
+          "findings": [],
+          "ms": 2
+        }
+      ],
+      "passRate": 1,
+      "faults": [
+        {
+          "id": "pg-01",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-01",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-01",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "pg-01",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-01",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-02",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-02",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-02",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-02",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-03",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-03",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-03",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-03",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-03",
+          "fault": "suppressed_figure",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-04",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-04",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-04",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-04",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-05",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-05",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-05",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "pg-05",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-05",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-06",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-06",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-06",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "pg-06",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-06",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-07",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-07",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-07",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-07",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-08",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-08",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-08",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "pg-08",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-08",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-09",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-09",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-09",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "pg-09",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-09",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-09",
+          "fault": "suppressed_figure",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-10",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "pg-10",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "pg-10",
+          "fault": "leak_employee",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "aggregate_policy"
+          ]
+        },
+        {
+          "id": "pg-10",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "pg-10",
+          "fault": "suppressed_figure",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        }
+      ],
+      "faultCatchRate": 1,
+      "byFault": {
+        "invent_number": "10/10",
+        "skip_script": "10/10",
+        "drop_finding": "5/5",
+        "leak_employee": "10/10",
+        "invented_finding": "10/10",
+        "suppressed_figure": "3/3"
+      },
+      "metrics": {}
+    }
+  ]
+}

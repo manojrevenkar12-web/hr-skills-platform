@@ -1,0 +1,9 @@
+.rail { position: sticky; top: calc(var(--bar-h) + var(--space-4)); display: grid; gap: var(--space-3); }
+.title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink-muted); }
+.list { display: grid; gap: var(--space-1); margin: 0; padding: 0; list-style: none; border-left: var(--hairline) solid var(--rule-strong); }
+.check { display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-2); padding: var(--space-2) 0 var(--space-2) var(--space-3); margin-left: calc(var(--hairline) * -1); border-left: var(--rule-mark) solid var(--tone); --tone: var(--computed); }
+.check[data-ok="false"] { --tone: var(--held); }
+.mark { color: var(--tone); font-weight: var(--weight-semibold); }
+.name { font-size: var(--text-sm); }
+.problems { grid-column: 2; margin: 0; padding-left: var(--space-4); font-size: var(--text-sm); color: var(--held); }
+@media (max-width: 960px) { .rail { position: static; } }

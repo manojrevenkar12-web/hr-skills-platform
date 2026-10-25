@@ -74,7 +74,7 @@ export async function checkProposals(args: CheckArgs, ctx: ScriptContext) {
     const gap = equityGap(rs);
     if (gap && gap.pp <= -policy.equityGapPp)
       raw.push({ orgUnit: unit, code: "equity_gap", severity: "blocking", values: { gapPp: gap.pp, comparedWomen: gap.women, comparedMen: gap.men, thresholdPp: policy.equityGapPp },
-        message: `${unit}: at the same level and rating, women's proposals average ${Math.abs(gap.pp)} points below men's (threshold ${policy.equityGapPp})` });
+        message: `${unit}: at the same level and rating, women's proposals average ${Math.abs(gap.pp)} ${Math.abs(gap.pp) === 1 ? "point" : "points"} below men's (threshold ${policy.equityGapPp})` });
     return { orgUnit: unit, proposals: rs.length, costEUR: cost, budgetEUR: budget, utilisationPct: r1((cost / budget) * 100) };
   });
 

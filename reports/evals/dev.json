@@ -1,8 +1,8 @@
 {
   "label": "dev",
   "set": "golden",
-  "recordedAt": "2026-10-25T14:35:03.765Z",
-  "git": "e457a6a",
+  "recordedAt": "2026-10-25T14:57:43.714Z",
+  "git": "6f7d8d4",
   "skills": [
     {
       "skill": "job-levelling",
@@ -15,7 +15,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 128,
+          "ms": 101,
           "truth": {
             "family": "finance",
             "level": "L1"
@@ -27,7 +27,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 16,
+          "ms": 17,
           "truth": {
             "family": "operations",
             "level": "L2"
@@ -39,7 +39,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 15,
+          "ms": 11,
           "truth": {
             "family": "operations",
             "level": "L3"
@@ -51,7 +51,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 13,
+          "ms": 6,
           "truth": {
             "family": "engineering",
             "level": "L3"
@@ -63,7 +63,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 11,
+          "ms": 8,
           "truth": {
             "family": "engineering",
             "level": "L4"
@@ -75,7 +75,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 9,
+          "ms": 10,
           "truth": {
             "family": "people",
             "level": "L2"
@@ -87,7 +87,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 10,
+          "ms": 6,
           "truth": {
             "family": "operations",
             "level": "L5"
@@ -99,7 +99,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 12,
+          "ms": 6,
           "truth": {
             "family": "sales",
             "level": "L6"
@@ -111,7 +111,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 9,
+          "ms": 8,
           "truth": {
             "family": "sales",
             "level": "L3"
@@ -123,7 +123,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 8,
+          "ms": 6,
           "truth": {
             "family": "people",
             "level": "L3"
@@ -135,7 +135,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 7,
+          "ms": 6,
           "truth": {
             "family": "finance",
             "level": "L5"
@@ -159,7 +159,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 12,
+          "ms": 5,
           "truth": {
             "family": "operations",
             "level": "L1"
@@ -171,7 +171,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6,
+          "ms": 7,
           "truth": {
             "family": "finance",
             "level": "L4"
@@ -184,7 +184,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5,
+          "ms": 4,
           "truth": {
             "family": "operations",
             "level": "L1"
@@ -935,7 +935,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 19
+          "ms": 14
         },
         {
           "id": "mc-02",
@@ -944,7 +944,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 7
+          "ms": 5
         },
         {
           "id": "mc-03",
@@ -953,7 +953,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6
+          "ms": 4
         },
         {
           "id": "mc-04",
@@ -962,7 +962,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6
+          "ms": 9
         },
         {
           "id": "mc-05",
@@ -971,7 +971,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6
+          "ms": 9
         },
         {
           "id": "mc-06",
@@ -980,7 +980,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 7
+          "ms": 6
         },
         {
           "id": "mc-07",
@@ -989,7 +989,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 10
+          "ms": 8
         },
         {
           "id": "mc-08",
@@ -998,7 +998,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6
+          "ms": 5
         },
         {
           "id": "mc-09",
@@ -1007,7 +1007,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 8
+          "ms": 6
         },
         {
           "id": "mc-10",
@@ -1016,7 +1016,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 9
+          "ms": 4
         },
         {
           "id": "mc-11",
@@ -1025,7 +1025,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 22
+          "ms": 10
         },
         {
           "id": "mc-12",
@@ -1043,7 +1043,7 @@
           "problems": [],
           "status": "failed",
           "findings": [],
-          "ms": 13
+          "ms": 4
         }
       ],
       "passRate": 1,
@@ -1506,7 +1506,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 16
+          "ms": 15
         },
         {
           "id": "pg-02",
@@ -1533,7 +1533,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 2
         },
         {
           "id": "pg-05",
@@ -1542,7 +1542,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 2
         },
         {
           "id": "pg-06",
@@ -1551,7 +1551,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 4
         },
         {
           "id": "pg-07",
@@ -1560,7 +1560,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 3
         },
         {
           "id": "pg-08",
@@ -1569,7 +1569,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 3
         },
         {
           "id": "pg-09",
@@ -1587,7 +1587,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 9
         },
         {
           "id": "pg-11",
@@ -1614,7 +1614,7 @@
           "problems": [],
           "status": "failed",
           "findings": [],
-          "ms": 2
+          "ms": 5
         }
       ],
       "passRate": 1,

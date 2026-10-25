@@ -1,0 +1,12 @@
+.form { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--field-min), 1fr)); gap: var(--space-4); }
+.field { display: grid; gap: var(--space-1); align-content: start; }
+.field[data-wide] { grid-column: 1 / -1; }
+.field label { font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+.field input, .field select, .field textarea {
+  min-height: var(--touch); padding: var(--space-2) var(--space-3); border: var(--hairline) solid var(--rule-strong);
+  border-radius: var(--radius-sm); background: var(--surface); line-height: var(--leading);
+}
+.field textarea { resize: vertical; }
+.field [aria-invalid] { border-color: var(--failed); }
+.problem { font-size: var(--text-sm); color: var(--failed); }
+.actions { grid-column: 1 / -1; }

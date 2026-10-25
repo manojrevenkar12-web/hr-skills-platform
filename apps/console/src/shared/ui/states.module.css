@@ -1,0 +1,78 @@
+.skeleton {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+}
+
+.bar {
+  display: block;
+  height: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--sunk), var(--rule), var(--sunk));
+  background-size: 200% 100%;
+  animation: shimmer var(--dur-shimmer) linear infinite;
+}
+
+.bar[data-short] {
+  width: var(--skeleton-short);
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+  }
+}
+
+.error,
+.empty {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--measure);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+}
+
+.error {
+  background: var(--failed-wash);
+  border-left: var(--rule-mark) solid var(--failed);
+}
+
+.empty {
+  background: var(--sunk);
+}
+
+.title {
+  font-weight: var(--weight-semibold);
+}
+
+.detail,
+.hint {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+.retry {
+  justify-self: start;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: var(--hairline) solid var(--failed);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--failed);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: var(--failed);
+  color: var(--surface);
+}

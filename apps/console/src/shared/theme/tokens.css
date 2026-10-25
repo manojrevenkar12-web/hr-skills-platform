@@ -1,0 +1,94 @@
+/*
+ * Design tokens: every colour, size, space and duration in the workbench comes from here.
+ * Two voices carry meaning across the app: ledger green is what code computed, plum is what the
+ * model wrote. Amber and red are for held and failed runs.
+ */
+:root {
+  --paper: #f4f5f7;
+  --surface: #ffffff;
+  --sunk: #eceef2;
+  --ink: #1b2433;
+  --ink-muted: #545e6e;
+  --ink-faint: #737d8c;
+  --rule: #dde1e7;
+  --rule-strong: #c4cad3;
+
+  --computed: #1f6f5c;
+  --computed-wash: #e2f0ea;
+  --model: #5b3a8e;
+  --model-wash: #efe9f7;
+  --held: #8f5300;
+  --held-wash: #fbefd9;
+  --failed: #b3261e;
+  --failed-wash: #fbe7e5;
+  --on-strong: #ffffff;
+  --focus: #5b3a8e;
+
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.5rem;
+  --text-display: 2.125rem;
+  --leading-tight: 1.2;
+  --leading: 1.5;
+  --leading-prose: 1.65;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+  --hairline: 1px;
+  --rule-mark: 3px;
+  --touch: 44px;
+  --bar-h: 60px;
+  --content-max: 1240px;
+  --measure: 68ch;
+  --side: 300px;
+  --panel: 30rem;
+  --field-min: 14rem;
+  --col-name: 10rem;
+  --col-meta: 7rem;
+  --rail: 260px;
+  --step-dot: 10px;
+  --chart-h: 120px;
+
+  --dur-fast: 140ms;
+  --dur-shimmer: 1.4s;
+  --skeleton-short: 55%;
+  --shadow-pop: 0 1px 2px rgb(27 36 51 / 8%), 0 6px 20px rgb(27 36 51 / 8%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12161d;
+    --surface: #1a2029;
+    --sunk: #212833;
+    --ink: #e6e9ee;
+    --ink-muted: #aab2be;
+    --ink-faint: #8a93a1;
+    --rule: #2c3440;
+    --rule-strong: #3a4352;
+    --computed: #5cc3a3;
+    --computed-wash: #16302a;
+    --model: #b79be6;
+    --model-wash: #2a2238;
+    --held: #e8a64a;
+    --held-wash: #35281a;
+    --failed: #f08a80;
+    --failed-wash: #3a1d1b;
+    --on-strong: #12161d;
+    --focus: #b79be6;
+  }
+}

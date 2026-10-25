@@ -1,0 +1,6 @@
+.details summary { min-height: var(--touch); display: flex; align-items: center; color: var(--model); font-weight: var(--weight-semibold); cursor: pointer; }
+.list { display: grid; gap: var(--space-1); margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); }
+.list li { display: grid; grid-template-columns: var(--col-meta) 1fr auto; gap: var(--space-3); padding: var(--space-1) 0; border-bottom: var(--hairline) solid var(--rule); }
+.list li[data-ok="false"] { color: var(--held); }
+.turn, .ms { color: var(--ink-faint); }
+.detail { grid-column: 2 / -1; }

@@ -25,6 +25,8 @@ export interface RunRow {
   finishedAt: string | null;
   durationMs: number | null;
   feedback: { rating: string; minutesSaved: number | null; issues: string[]; comment: string } | null;
+  /** the checks this skill's results go through, in order */
+  validators: string[];
 }
 
 const SELECT = `SELECT r.id, r.skill, r.version, r.status, r.input, r.output, r.findings, r.trace, r.model, r.error,
@@ -59,11 +61,15 @@ export class RunsService {
     const row = rows[0] as (RunRow & { userId: string }) | undefined;
     if (!row || row.userId !== user.id) throw new NotFoundException("No such run.");
     const { userId: _u, ...run } = row;
-    return run;
+    return { ...run, validators: this.validatorsOf(run.skill) };
   }
 
   async list(user: User, limit = 50): Promise<RunRow[]> {
     const { rows } = await this.pool.query(`${SELECT} WHERE r.user_id = $1 ORDER BY r.created_at DESC LIMIT $2`, [user.id, limit]);
-    return rows.map(({ userId: _u, output: _o, trace: _t, ...r }: RunRow & { userId: string }) => ({ ...r, output: null, trace: [] }));
+    return rows.map(({ userId: _u, output: _o, trace: _t, ...r }: RunRow & { userId: string }) => ({ ...r, output: null, trace: [], validators: this.validatorsOf(r.skill) }));
+  }
+
+  private validatorsOf(skill: string): string[] {
+    return this.skills.skills.find((s) => s.name === skill)?.contract.validators ?? [];
   }
 }

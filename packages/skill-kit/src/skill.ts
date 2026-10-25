@@ -15,7 +15,7 @@ export interface Skill {
   contract: Contract;
   /** files of the skill, relative to its directory */
   files: string[];
-  /** sha256 over every file of the skill: what a release pins */
+  /** sha256 over the files that make up the skill at run time (everything but evals/): what a release pins */
   contentHash: string;
 }
 
@@ -39,7 +39,8 @@ export function loadSkill(dir: string): Skill {
   if (!parsed.success) throw new SkillError(`${dir}/contract.yaml: ${parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ")}`);
   const files = listFiles(dir).map((f) => relative(dir, f)).sort();
   const hash = createHash("sha256");
-  for (const f of files) hash.update(f).update("\0").update(readFileSync(join(dir, f))).update("\0");
+  // evals/ is how the skill is tested, not what runs: a new held-out set needs no new version
+  for (const f of files.filter((x) => !x.startsWith("evals/"))) hash.update(f).update("\0").update(readFileSync(join(dir, f))).update("\0");
   return {
     dir,
     name: String(frontmatter.name ?? ""),

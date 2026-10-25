@@ -1,6 +1,6 @@
 # Evaluation: dev
 
-Set `golden`, recorded 2026-10-25T14:35:03.765Z at e457a6a.
+Set `golden`, recorded 2026-10-25T14:57:43.714Z at 6f7d8d4.
 
 | Skill | Version | Model | Cases passed | Injected faults caught | Metrics |
 |---|---|---|---:|---:|---|

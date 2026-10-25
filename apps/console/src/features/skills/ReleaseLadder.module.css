@@ -1,0 +1,18 @@
+.ladder { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; counter-reset: rung; }
+.rung { position: relative; display: grid; gap: var(--space-1); padding-top: var(--space-4); --tone: var(--rule-strong); }
+.rung::before { content: ""; position: absolute; top: calc(var(--step-dot) / 2 - var(--hairline)); left: 0; right: 0; height: var(--rule-mark); background: var(--tone); }
+.rung:first-child::before { left: calc(var(--step-dot) / 2); }
+.rung:last-child::before { right: auto; width: calc(var(--step-dot) / 2); }
+.rung[data-state="met"] { --tone: var(--computed); }
+.rung[data-state="warn"] { --tone: var(--held); }
+.step { position: absolute; top: 0; left: 0; width: var(--step-dot); height: var(--step-dot); border-radius: var(--radius-pill); background: var(--tone); box-shadow: 0 0 0 var(--rule-mark) var(--surface); }
+.rung[data-state="open"] .step { background: var(--surface); outline: var(--hairline) solid var(--rule-strong); }
+.label { font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+.detail { font-size: var(--text-sm); color: var(--ink-muted); }
+.rung[data-state="warn"] .detail { color: var(--held); }
+@media (max-width: 760px) {
+  .ladder { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+  .rung { padding: 0 0 0 var(--space-5); }
+  .rung::before { display: none; }
+  .step { top: calc(var(--space-1) + var(--hairline)); }
+}

@@ -1,0 +1,15 @@
+.page { min-height: 100vh; display: grid; place-items: center; padding: var(--space-6) var(--space-4); }
+.panel { width: 100%; max-width: var(--panel); display: grid; gap: var(--space-5); }
+.title { font-size: var(--text-display); line-height: var(--leading-tight); font-weight: var(--weight-semibold); }
+.lead { color: var(--ink-muted); }
+.people { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.person {
+  width: 100%; min-height: var(--touch); display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4); border: var(--hairline) solid var(--rule); border-radius: var(--radius-md);
+  background: var(--surface); text-align: left; cursor: pointer; transition: border-color var(--dur-fast);
+}
+.person:hover:not(:disabled) { border-color: var(--model); }
+.name { font-weight: var(--weight-semibold); }
+.role { color: var(--ink-muted); font-size: var(--text-sm); }
+.error { color: var(--failed); }
+.note { font-size: var(--text-sm); color: var(--ink-faint); }

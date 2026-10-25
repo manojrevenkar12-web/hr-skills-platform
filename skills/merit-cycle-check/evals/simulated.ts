@@ -18,7 +18,10 @@ const RULE: Record<string, (f: F) => string> = {
   rating_one_increase: (f) => `${f.values.proposedPct}% for a rating of 1; the guideline gives no increase.`,
   above_band_max: (f) => `this takes base pay to ${f.values.newBase} EUR, above the band maximum of ${f.values.bandMax} EUR.`,
   budget_exceeded: (f) => `the unit's proposals cost ${f.values.costEUR} EUR against a budget of ${f.values.budgetEUR} EUR.`,
-  equity_gap: (f) => `at the same level and rating, women's proposals average ${Math.abs(Number(f.values.gapPp))} points below men's; compare them before sign-off.`,
+  equity_gap: (f) => {
+    const pp = Math.abs(Number(f.values.gapPp));
+    return `at the same level and rating, women's proposals average ${pp} ${pp === 1 ? "point" : "points"} below men's; compare them before sign-off.`;
+  },
 };
 
 export const behaviour: Behaviour = ({ input, results, faults, turn }) => {
