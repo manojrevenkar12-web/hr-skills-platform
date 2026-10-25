@@ -1,0 +1,496 @@
+# Held-out set 1 for pay-gap-report. Written blind from the reference documents only
+# (method.md, thresholds.json, job-architecture.yaml, WRITING_HELDOUT.md).
+# Hourly pay = hourly + extras / hours; gaps = (men - women) / men x 100, one decimal.
+cases:
+  # Six women and six men in one category; women about 8% lower (mean 8.1, median 8.2).
+  - id: h-pg-001
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 21 }
+        - { gender: F, hourly: 22 }
+        - { gender: F, hourly: 23 }
+        - { gender: F, hourly: 24 }
+        - { gender: F, hourly: 26 }
+        - { gender: M, hourly: 22 }
+        - { gender: M, hourly: 23 }
+        - { gender: M, hourly: 24 }
+        - { gender: M, hourly: 25 }
+        - { gender: M, hourly: 26 }
+        - { gender: M, hourly: 28 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 8.1, indicators.medianGapPct: 8.2, findings.length: 1, "categories[].suppressed": [false] }
+
+  # Women work part-time at the same hourly rates as men: hourly pay shows no gap although annual pay differs.
+  - id: h-pg-002
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 24, hours: 500 }
+        - { gender: F, hourly: 25, hours: 600 }
+        - { gender: F, hourly: 26, hours: 700 }
+        - { gender: F, hourly: 24, hours: 800 }
+        - { gender: F, hourly: 25, hours: 500 }
+        - { gender: F, hourly: 26, hours: 1000 }
+        - { gender: M, hourly: 24 }
+        - { gender: M, hourly: 25 }
+        - { gender: M, hourly: 26 }
+        - { gender: M, hourly: 24 }
+        - { gender: M, hourly: 25 }
+        - { gender: M, hourly: 26 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 0, indicators.medianGapPct: 0, findings.length: 0 }
+
+  # Three people recorded as X earn much less; they are counted but not part of the women-men gap.
+  - id: h-pg-003
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 28 }
+        - { gender: F, hourly: 30 }
+        - { gender: F, hourly: 32 }
+        - { gender: F, hourly: 29 }
+        - { gender: F, hourly: 31 }
+        - { gender: F, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 29 }
+        - { gender: M, hourly: 31 }
+        - { gender: M, hourly: 30 }
+        - { gender: X, hourly: 15 }
+        - { gender: X, hourly: 15 }
+        - { gender: X, hourly: 16 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 0, indicators.medianGapPct: 0, findings.length: 0, "categories[].suppressed": [false] }
+
+  # Only five women in the company (X is not counted as a woman): the report cannot be made.
+  - id: h-pg-004
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 22 }
+        - { gender: F, hourly: 24 }
+        - { gender: F, hourly: 26 }
+        - { gender: F, hourly: 23 }
+        - { gender: F, hourly: 25 }
+        - { gender: M, hourly: 24 }
+        - { gender: M, hourly: 25 }
+        - { gender: M, hourly: 26 }
+        - { gender: M, hourly: 27 }
+        - { gender: M, hourly: 28 }
+        - { gender: M, hourly: 24 }
+        - { gender: M, hourly: 25 }
+        - { gender: M, hourly: 26 }
+        - { gender: M, hourly: 27 }
+        - { gender: M, hourly: 28 }
+        - { gender: X, hourly: 23 }
+        - { gender: X, hourly: 24 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: failed
+
+  # Exactly six women and six men: enough for a report. Women slightly ahead on the mean, equal on the median.
+  - id: h-pg-005
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 31, hours: 1000 }
+        - { gender: F, hourly: 29, hours: 1000 }
+        - { gender: F, hourly: 30, hours: 750 }
+        - { gender: F, hourly: 32, hours: 1000 }
+        - { gender: F, hourly: 28, hours: 1600 }
+        - { gender: F, hourly: 30, hours: 1000 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 29 }
+        - { gender: M, hourly: 31 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 28 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: -1.1, indicators.medianGapPct: 0, findings.length: 0, "categories[].suppressed": [false] }
+
+  # Two categories: operations L3 has a 10% gap (finding); finance L4 has a 20% gap but only five women, so it is suppressed and not a finding.
+  - id: h-pg-006
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 27 }
+        - { gender: F, hourly: 27 }
+        - { gender: F, hourly: 27 }
+        - { gender: F, hourly: 27 }
+        - { gender: F, hourly: 27 }
+        - { gender: F, hourly: 27 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: F, hourly: 36, family: finance, level: L4 }
+        - { gender: F, hourly: 36, family: finance, level: L4 }
+        - { gender: F, hourly: 36, family: finance, level: L4 }
+        - { gender: F, hourly: 36, family: finance, level: L4 }
+        - { gender: F, hourly: 36, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+        - { gender: M, hourly: 45, family: finance, level: L4 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 18.3, indicators.medianGapPct: 40, findings.length: 1 }
+
+  # A gap of exactly 5.0% is a finding (at least 5%).
+  - id: h-pg-007
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 18 }
+        - { gender: F, hourly: 19 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 19 }
+        - { gender: F, hourly: 18 }
+        - { gender: F, hourly: 20 }
+        - { gender: M, hourly: 19 }
+        - { gender: M, hourly: 21 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 19 }
+        - { gender: M, hourly: 21 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 5, indicators.medianGapPct: 5, findings.length: 1 }
+
+  # A gap of 4.9% is not a finding.
+  - id: h-pg-008
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 46.55 }
+        - { gender: F, hourly: 48.55 }
+        - { gender: F, hourly: 47.55 }
+        - { gender: F, hourly: 47.55 }
+        - { gender: F, hourly: 46.05 }
+        - { gender: F, hourly: 49.05 }
+        - { gender: M, hourly: 48 }
+        - { gender: M, hourly: 52 }
+        - { gender: M, hourly: 50 }
+        - { gender: M, hourly: 50 }
+        - { gender: M, hourly: 49 }
+        - { gender: M, hourly: 51 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 4.9, indicators.medianGapPct: 4.9, findings.length: 0 }
+
+  # Women are paid more: a negative gap of at least 5% is also a finding.
+  - id: h-pg-009
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 33 }
+        - { gender: F, hourly: 34 }
+        - { gender: F, hourly: 35 }
+        - { gender: F, hourly: 36 }
+        - { gender: F, hourly: 33 }
+        - { gender: F, hourly: 39 }
+        - { gender: M, hourly: 32 }
+        - { gender: M, hourly: 33 }
+        - { gender: M, hourly: 32 }
+        - { gender: M, hourly: 31 }
+        - { gender: M, hourly: 34 }
+        - { gender: M, hourly: 30 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: -9.4, indicators.medianGapPct: -7.8, findings.length: 1 }
+
+  # Equal base pay; men get larger bonuses. Total hourly gap 3.7% (no finding), variable-pay gap 50%.
+  - id: h-pg-010
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 25, extras: 0 }
+        - { gender: F, hourly: 25, extras: 0 }
+        - { gender: F, hourly: 25, extras: 1000 }
+        - { gender: F, hourly: 25, extras: 1000 }
+        - { gender: F, hourly: 25, extras: 2000 }
+        - { gender: F, hourly: 25, extras: 2000 }
+        - { gender: M, hourly: 25, extras: 2000 }
+        - { gender: M, hourly: 25, extras: 2000 }
+        - { gender: M, hourly: 25, extras: 2000 }
+        - { gender: M, hourly: 25, extras: 3000 }
+        - { gender: M, hourly: 25, extras: 3000 }
+        - { gender: M, hourly: 25, extras: 0 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 3.7, indicators.medianGapPct: 3.7, indicators.variableMeanGapPct: 50, findings.length: 0 }
+
+  # Part-time women get pro-rata allowances: no hourly gap, but the variable gap is on annual pay per worker (30%).
+  - id: h-pg-011
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 20, hours: 500, extras: 2500 }
+        - { gender: F, hourly: 20, hours: 500, extras: 2500 }
+        - { gender: F, hourly: 20, hours: 800, extras: 4000 }
+        - { gender: F, hourly: 20, hours: 800, extras: 4000 }
+        - { gender: F, hourly: 20, hours: 600, extras: 3000 }
+        - { gender: F, hourly: 20, hours: 1000, extras: 5000 }
+        - { gender: M, hourly: 20, extras: 5000 }
+        - { gender: M, hourly: 20, extras: 5000 }
+        - { gender: M, hourly: 20, extras: 5000 }
+        - { gender: M, hourly: 20, extras: 5000 }
+        - { gender: M, hourly: 20, extras: 5000 }
+        - { gender: M, hourly: 20, extras: 5000 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 0, indicators.medianGapPct: 0, indicators.variableMeanGapPct: 30, findings.length: 0 }
+
+  # No gap inside either category, but more women at L2 and more men at L4: a company gap without any finding.
+  - id: h-pg-012
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: F, hourly: 30, level: L4 }
+        - { gender: F, hourly: 30, level: L4 }
+        - { gender: F, hourly: 30, level: L4 }
+        - { gender: F, hourly: 30, level: L4 }
+        - { gender: F, hourly: 30, level: L4 }
+        - { gender: F, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+        - { gender: M, hourly: 30, level: L4 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 9.5, indicators.medianGapPct: 40, findings.length: 0, "categories[].suppressed": [false, false] }
+
+  # Three families: engineering L4 2.3% (no finding), sales L2 8.0% (finding), people L3 has only three women (suppressed).
+  - id: h-pg-013
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 40, family: engineering, level: L4 }
+        - { gender: F, hourly: 42, family: engineering, level: L4 }
+        - { gender: F, hourly: 44, family: engineering, level: L4 }
+        - { gender: F, hourly: 41, family: engineering, level: L4 }
+        - { gender: F, hourly: 43, family: engineering, level: L4 }
+        - { gender: F, hourly: 42, family: engineering, level: L4 }
+        - { gender: M, hourly: 42, family: engineering, level: L4 }
+        - { gender: M, hourly: 43, family: engineering, level: L4 }
+        - { gender: M, hourly: 44, family: engineering, level: L4 }
+        - { gender: M, hourly: 42, family: engineering, level: L4 }
+        - { gender: M, hourly: 43, family: engineering, level: L4 }
+        - { gender: M, hourly: 44, family: engineering, level: L4 }
+        - { gender: F, hourly: 22, family: sales, level: L2 }
+        - { gender: F, hourly: 22, family: sales, level: L2 }
+        - { gender: F, hourly: 23, family: sales, level: L2 }
+        - { gender: F, hourly: 23, family: sales, level: L2 }
+        - { gender: F, hourly: 24, family: sales, level: L2 }
+        - { gender: F, hourly: 24, family: sales, level: L2 }
+        - { gender: M, hourly: 25, family: sales, level: L2 }
+        - { gender: M, hourly: 25, family: sales, level: L2 }
+        - { gender: M, hourly: 26, family: sales, level: L2 }
+        - { gender: M, hourly: 26, family: sales, level: L2 }
+        - { gender: M, hourly: 24, family: sales, level: L2 }
+        - { gender: M, hourly: 24, family: sales, level: L2 }
+        - { gender: F, hourly: 28, family: people, level: L3 }
+        - { gender: F, hourly: 28, family: people, level: L3 }
+        - { gender: F, hourly: 28, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+        - { gender: M, hourly: 33, family: people, level: L3 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 6, indicators.medianGapPct: 15.2, findings.length: 1 }
+
+  # One very well paid man: mean gap 20%, median gap 0. The category mean gap makes it a finding.
+  - id: h-pg-014
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 19 }
+        - { gender: F, hourly: 21 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 19 }
+        - { gender: F, hourly: 21 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 50 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 20, indicators.medianGapPct: 0, findings.length: 1 }
+
+  # Operations L3 has six women, five men and one person recorded as X: suppressed (X is not a man), so its large gap is not a finding.
+  - id: h-pg-015
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 20 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: M, hourly: 30 }
+        - { gender: X, hourly: 30 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: F, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+        - { gender: M, hourly: 18, level: L2 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 19, indicators.medianGapPct: -5.6, findings.length: 0 }
+
+  # Eight women but only five men; the X person does not count as a man: the report cannot be made.
+  - id: h-pg-016
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 21 }
+        - { gender: F, hourly: 22 }
+        - { gender: F, hourly: 23 }
+        - { gender: F, hourly: 24 }
+        - { gender: F, hourly: 25 }
+        - { gender: F, hourly: 26 }
+        - { gender: F, hourly: 27 }
+        - { gender: M, hourly: 22 }
+        - { gender: M, hourly: 24 }
+        - { gender: M, hourly: 26 }
+        - { gender: M, hourly: 28 }
+        - { gender: M, hourly: 30 }
+        - { gender: X, hourly: 25 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: failed
+
+  # People L3 across Berlin and Hamburg with part-time staff and different tenure: raw gap 6.9%, a finding with enough people for the adjusted gap.
+  - id: h-pg-017
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 26, hours: 1000, family: people, location: Berlin, hireDate: "2022-04-01" }
+        - { gender: F, hourly: 27, hours: 800, family: people, location: Hamburg, hireDate: "2021-09-15" }
+        - { gender: F, hourly: 28, hours: 1000, family: people, location: Berlin, hireDate: "2019-01-07" }
+        - { gender: F, hourly: 26, hours: 600, family: people, location: Berlin, hireDate: "2023-02-01" }
+        - { gender: F, hourly: 27, hours: 1000, family: people, location: Hamburg, hireDate: "2020-06-01" }
+        - { gender: F, hourly: 28, hours: 1000, family: people, location: Berlin, hireDate: "2018-11-12" }
+        - { gender: F, hourly: 27, hours: 500, family: people, location: Hamburg, hireDate: "2024-03-04" }
+        - { gender: M, hourly: 28, family: people, location: Hamburg, hireDate: "2016-05-02" }
+        - { gender: M, hourly: 29, family: people, location: Berlin, hireDate: "2019-10-01" }
+        - { gender: M, hourly: 30, family: people, location: Berlin, hireDate: "2015-03-16" }
+        - { gender: M, hourly: 28, family: people, location: Hamburg, hireDate: "2020-01-13" }
+        - { gender: M, hourly: 29, family: people, location: Berlin, hireDate: "2017-08-01" }
+        - { gender: M, hourly: 30, family: people, location: Berlin, hireDate: "2014-04-01" }
+        - { gender: M, hourly: 29, family: people, location: Hamburg, hireDate: "2021-07-01" }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 6.9, indicators.medianGapPct: 6.9, findings.length: 1 }
+
+  # Only men receive a bonus: variable gap 100%, total hourly gap 3.2%, no category finding.
+  - id: h-pg-018
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 30 }
+        - { gender: F, hourly: 30 }
+        - { gender: F, hourly: 30 }
+        - { gender: F, hourly: 30 }
+        - { gender: F, hourly: 30 }
+        - { gender: F, hourly: 30 }
+        - { gender: M, hourly: 30, extras: 1000 }
+        - { gender: M, hourly: 30, extras: 1000 }
+        - { gender: M, hourly: 30, extras: 1000 }
+        - { gender: M, hourly: 30, extras: 1000 }
+        - { gender: M, hourly: 30, extras: 1000 }
+        - { gender: M, hourly: 30, extras: 1000 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: 3.2, indicators.medianGapPct: 3.2, indicators.variableMeanGapPct: 100, findings.length: 0 }
+
+  # Women paid exactly 5% more than men: a finding either way.
+  - id: h-pg-019
+    build:
+      fn: scripts/testkit.ts#company
+      rows:
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 22 }
+        - { gender: F, hourly: 21 }
+        - { gender: F, hourly: 21 }
+        - { gender: F, hourly: 20 }
+        - { gender: F, hourly: 22 }
+        - { gender: M, hourly: 19 }
+        - { gender: M, hourly: 21 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 20 }
+        - { gender: M, hourly: 19 }
+        - { gender: M, hourly: 21 }
+    input: { entity: test-co, year: 2026 }
+    expect:
+      status: ok
+      equals: { indicators.meanGapPct: -5, indicators.medianGapPct: -5, findings.length: 1 }
+

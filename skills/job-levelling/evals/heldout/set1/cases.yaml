@@ -1,0 +1,377 @@
+# Held-out set 1 for job-levelling. Written blind from the job architecture and the levelling
+# guide only. All roles and companies are invented. Truth is what a careful compensation analyst
+# assigns: scope first, then autonomy, impact confirms; titles are not evidence; years only break
+# ties; when the evidence spans two levels, the lower one.
+cases:
+  # Inflated title: assigned tickets, everything reviewed, asks a mentor.
+  - id: h-jl-001
+    input:
+      jobTitle: "Senior Software Engineer"
+      jobDescription: "Join our booking team and help us grow! You pick up small bug fixes and minor UI changes from the tickets your team lead assigns each sprint. You follow our coding guidelines, and every change is reviewed by a colleague before it is merged. When a ticket is unclear you ask your mentor. This is a great first job after university; 0-2 years of experience."
+    expect: { status: ok }
+    truth: { family: engineering, level: L1 }
+
+  - id: h-jl-002
+    input:
+      jobTitle: "Backend Developer"
+      jobDescription: "You build and maintain features in the ticketing service as part of a team of five. You take routine stories from the backlog and complete them on your own, including tests and deployment through our pipeline. Design questions and production incidents outside the normal pattern go to the tech lead. 2-4 years of experience with Java or Kotlin."
+    expect: { status: ok }
+    truth: { family: engineering, level: L2 }
+
+  - id: h-jl-003
+    input:
+      jobTitle: "Data Engineer"
+      jobDescription: "You own the vehicle telemetry pipeline from the depots to our data warehouse. You plan your own work, choose the tools and decide how the data is modelled within that area. You analyse data quality problems and fix their causes, not only the symptoms. You informally guide our working student. Around 5 years of experience."
+    expect: { status: ok }
+    truth: { family: engineering, level: L3 }
+
+  - id: h-jl-004
+    input:
+      jobTitle: "Engineering Manager, Mobile"
+      jobDescription: "You lead a team of 7 mobile engineers building our passenger app. You set the priorities for the app area together with product management and define how the team works, from code review to releases. You coach the engineers and hold their development talks. The problems are often new and ambiguous, such as offline ticketing in tunnels."
+    expect: { status: ok }
+    truth: { family: engineering, level: L4 }
+
+  # Senior expert with no reports, company-wide technical domain.
+  - id: h-jl-005
+    input:
+      jobTitle: "Principal Engineer"
+      jobDescription: "This role has no direct reports. You are the recognised expert for software architecture across the whole company and set the technical direction and engineering standards that all teams follow. You decide strategic questions that span engineering, operations and finance, such as replacing the dispatch platform. You are accountable for the architecture budget for external reviews and tooling. You report to the CTO."
+    expect: { status: ok }
+    truth: { family: engineering, level: L5 }
+
+  - id: h-jl-006
+    input:
+      jobTitle: "Chief Technology Officer"
+      jobDescription: "You set the technology strategy of the company and answer to the executive board for it. You manage the directors of engineering and data and are accountable for the whole technology budget. You represent the company towards public transport authorities, partners and investors on technology matters. The decisions you take shape the company for the next ten years."
+    expect: { status: ok }
+    truth: { family: engineering, level: L6 }
+
+  # Inflated title, imperfect English: follows a runbook, checked by others.
+  - id: h-jl-007
+    input:
+      jobTitle: "Lead Platform Engineer"
+      jobDescription: "You will watch the monitoring screens in the night shift and make sure our servers is running. When an alarm come, you follow step by step the runbook what the shift lead give you. If a case is not in the runbook, you call the on-call engineer and you do not change anything yourself. All your actions are checked in the morning by the platform team."
+    expect: { status: ok }
+    truth: { family: engineering, level: L1 }
+
+  - id: h-jl-008
+    input:
+      jobTitle: "Director of Engineering, Fleet Systems"
+      jobDescription: "You manage the three engineering managers of the fleet systems department, about 30 engineers in total. You set the direction and engineering standards for all fleet software and are accountable for its headcount and budget. You work with operations leadership on strategic problems such as the electrification of the fleet. You report to the CTO."
+    expect: { status: ok }
+    truth: { family: engineering, level: L5 }
+
+  # Vague, buzzword advert with an inflated title.
+  - id: h-jl-009
+    input:
+      jobTitle: "Senior QA Engineer"
+      jobDescription: "We are looking for a passionate quality hero to join our amazing agile team! You work through the test runs of our app releases on your own and report the defects you find. Our test lead decides what is tested in each release and what happens with unusual findings. You know Selenium or a similar tool and love clean software!"
+    expect: { status: ok }
+    truth: { family: engineering, level: L2 }
+
+  # Years (6-8) point higher, but the scope is one area: years never beat clear scope.
+  - id: h-jl-010
+    input:
+      jobTitle: "Software Engineer"
+      jobDescription: "You own the payment integration of our ticket app and plan your own work within it. You choose the methods and decide on the design within the area. Now and then you coordinate a change with the finance systems team. You guide two junior colleagues informally. 6-8 years of experience."
+    expect: { status: ok }
+    truth: { family: engineering, level: L3 }
+
+  - id: h-jl-011
+    input:
+      jobTitle: "Senior Security Engineer"
+      jobDescription: "You are responsible for security across our passenger app, the cloud platform and the depot systems. You set the priorities for security work across these areas and define how teams handle vulnerabilities and incidents. The problems are complex and ambiguous, so you often design new approaches, for example for the vehicle on-board units. You coach other engineers on secure design. No direct reports."
+    expect: { status: ok }
+    truth: { family: engineering, level: L4 }
+
+  # Inflated "Head" title on office IT support.
+  - id: h-jl-012
+    input:
+      jobTitle: "Head of IT"
+      jobDescription: "Our office needs IT support! You set up laptops and phones for new colleagues, reset passwords and fix printer and Wi-Fi problems from the helpdesk tickets. You work through the ticket queue on your own using our checklists. Bigger problems you hand over to our external IT partner. 1-3 years in IT support."
+    expect: { status: ok }
+    truth: { family: engineering, level: L2 }
+
+  - id: h-jl-013
+    input:
+      jobTitle: "Depot Assistant"
+      jobDescription: "You clean, refuel and check our buses at the end of the day using the depot checklist. The shift supervisor assigns your vehicles and checks your list before you go home. You report any damage you find to the supervisor. No experience needed; we train you."
+    expect: { status: ok }
+    truth: { family: operations, level: L1 }
+
+  - id: h-jl-014
+    input:
+      jobTitle: "Dispatcher"
+      jobDescription: "You plan the daily duties of about 40 drivers in our dispatch system, following the rostering process of the dispatch team. On normal days you handle sick calls and shift swaps on your own. Breakdowns, accidents and anything outside the rules go to the dispatch lead. 1-3 years in transport or logistics."
+    expect: { status: ok }
+    truth: { family: operations, level: L2 }
+
+  - id: h-jl-015
+    input:
+      jobTitle: "Maintenance Planner"
+      jobDescription: "You are responsible for the complete inspection and repair programme of the Hamburg depot's 120 buses. You plan the work independently, decide the workshop slots and choose how to deal with recurring faults. You analyse failure data to find the causes and agree the plan with the workshop. You guide two apprentices on the job."
+    expect: { status: ok }
+    truth: { family: operations, level: L3 }
+
+  # "Head" title on a team-lead role.
+  - id: h-jl-016
+    input:
+      jobTitle: "Head of Night Maintenance"
+      jobDescription: "You lead the night shift of 6 mechanics at our largest depot. You set the priorities for repairs each night and define how the shift works, from handovers to safety checks. You introduce new approaches when the usual fixes do not work, for example on the new electric buses. You coach your mechanics and hold their annual reviews."
+    expect: { status: ok }
+    truth: { family: operations, level: L4 }
+
+  - id: h-jl-017
+    input:
+      jobTitle: "Director Fleet Operations"
+      jobDescription: "You manage the depot managers of all eight depots. You set the standards for maintenance and fleet operations across the company and are accountable for the fleet budget of EUR 40 million. You solve strategic questions that span operations, finance and engineering, such as the charging infrastructure. You report to the Chief Operating Officer."
+    expect: { status: ok }
+    truth: { family: operations, level: L5 }
+
+  - id: h-jl-018
+    input:
+      jobTitle: "Chief Operating Officer"
+      jobDescription: "You set the strategy for the whole operations business, from depots and fleet to dispatch and maintenance, and answer to the executive board for its results. You manage the directors of fleet, dispatch and maintenance. You represent the company towards cities, transport authorities and unions. Your decisions cover the next decade of the network."
+    expect: { status: ok }
+    truth: { family: operations, level: L6 }
+
+  # Many years asked for, but the work is supervised data entry.
+  - id: h-jl-019
+    input:
+      jobTitle: "Senior Fleet Coordinator"
+      jobDescription: "You enter the mileage and fuel data of our vehicles into the fleet system and book workshop appointments following the booking procedure. Your supervisor gives you the list of vehicles each week and checks your entries. If a vehicle is not in the system, you ask the supervisor. We require at least 8 years of professional experience."
+    expect: { status: ok }
+    truth: { family: operations, level: L1 }
+
+  # Imperfect English, a complete area with own decisions.
+  - id: h-jl-020
+    input:
+      jobTitle: "Spare Parts Specialist"
+      jobDescription: "You are responsible for the complete spare parts store of the Lisbon workshop. You plan by yourself which parts we keep and how many, and you analyse why parts is often missing and change the process. You decide in your area without asking every time. You show the two trainees how the store work."
+    expect: { status: ok }
+    truth: { family: operations, level: L3 }
+
+  - id: h-jl-021
+    input:
+      jobTitle: "Workshop Mechanic"
+      jobDescription: "You repair our buses in the workshop. Normal repairs like brakes, doors and tyres you do alone, following the repair manuals. When the fault is unusual or needs a decision about cost, you go to the master mechanic. You have finished your training as a mechanic and have some years of experience."
+    expect: { status: ok }
+    truth: { family: operations, level: L2 }
+
+  # "Head" title on a function-level role that does not answer to the board.
+  - id: h-jl-022
+    input:
+      jobTitle: "Head of Dispatch"
+      jobDescription: "You manage the four dispatch team leads and, through them, about 60 dispatchers. You set the standards and the direction for dispatch across all depots and are accountable for dispatch headcount and its budget. You work on problems that span functions, such as new shift models with People and Finance. You report to the Director Fleet Operations."
+    expect: { status: ok }
+    truth: { family: operations, level: L5 }
+
+  - id: h-jl-023
+    input:
+      jobTitle: "Accounts Payable Clerk"
+      jobDescription: "You match incoming supplier invoices with purchase orders and goods receipts using our checklist. Your team lead assigns the invoices and approves them before payment. When an invoice does not match, you ask the team lead what to do. A training in accounting or first experience is enough."
+    expect: { status: ok }
+    truth: { family: finance, level: L1 }
+
+  - id: h-jl-024
+    input:
+      jobTitle: "Treasury Analyst"
+      jobDescription: "You prepare the daily cash position and execute the routine payment runs within the treasury process. On normal days you work on your own and know the bank portals well. Unusual payments, new bank accounts and any limit breach go to the treasury manager. 2-3 years in treasury or banking."
+    expect: { status: ok }
+    truth: { family: finance, level: L2 }
+
+  # Deflating title: the scope is a complete area.
+  - id: h-jl-025
+    input:
+      jobTitle: "Junior Controller"
+      jobDescription: "You own the monthly cost-centre reporting for the operations function. You analyse variances, decide which questions to raise with the depot managers and choose how the reports are built. You propose corrections within your area without needing approval for each one. You guide our intern. 3-5 years of controlling experience."
+    expect: { status: ok }
+    truth: { family: finance, level: L3 }
+
+  - id: h-jl-026
+    input:
+      jobTitle: "Senior Procurement Manager"
+      jobDescription: "You lead a team of 4 buyers for indirect procurement, from IT to facility services. You set the priorities for the area and define how tenders are run. You design new approaches where the market is difficult, for example multi-year energy contracts. You coach the buyers and are measured on the savings of the procurement department."
+    expect: { status: ok }
+    truth: { family: finance, level: L4 }
+
+  # Family trap: "Fleet" in the title, but the work is procurement (finance).
+  - id: h-jl-027
+    input:
+      jobTitle: "Fleet Procurement Specialist"
+      jobDescription: "You run the purchasing of buses and major spare parts for our depots as part of the procurement team. You own the complete tender for each vehicle order: you plan it, choose the procedure and decide on the shortlist within the approved budget. You analyse the offers and negotiate with manufacturers. 4-6 years in procurement."
+    expect: { status: ok }
+    truth: { family: finance, level: L3 }
+
+  # Expert with no reports for a company-wide professional domain; not on the board.
+  - id: h-jl-028
+    input:
+      jobTitle: "Head of Tax"
+      jobDescription: "You are our recognised tax expert for the whole company and have no direct reports. You set the tax standards and direction for all entities in Germany and Portugal and are accountable for the tax advisory budget. You solve strategic questions across functions, such as the structure of the Portuguese entity. You work closely with the CFO, who reports to the board."
+    expect: { status: ok }
+    truth: { family: finance, level: L5 }
+
+  - id: h-jl-029
+    input:
+      jobTitle: "VP Controlling"
+      jobDescription: "You manage the three controlling team leads and set the standards for planning, reporting and controlling across the company. You are accountable for the finance function's planning process and its budget. You solve problems that span functions, such as the cost model for new city contracts. You report to the CFO."
+    expect: { status: ok }
+    truth: { family: finance, level: L5 }
+
+  - id: h-jl-030
+    input:
+      jobTitle: "Chief Financial Officer"
+      jobDescription: "You set the financial strategy of the company and answer to the executive board and the supervisory board. You manage the heads of accounting, controlling, treasury and procurement. You represent the company towards banks, investors and auditors. You are responsible for the company's results and its long-term financing."
+    expect: { status: ok }
+    truth: { family: finance, level: L6 }
+
+  # Vague advert; the only concrete tasks are assigned support tasks.
+  - id: h-jl-031
+    input:
+      jobTitle: "Finance Hero (m/w/d)"
+      jobDescription: "Numbers are your passion? Join our dynamic finance family and support the team with different topics! You take care of tasks like filing receipts and updating our Excel lists whenever colleagues ask you. First experience welcome, students and career starters too."
+    expect: { status: ok }
+    truth: { family: finance, level: L1 }
+
+  # Imperfect English, routine bookings with escalation.
+  - id: h-jl-032
+    input:
+      jobTitle: "Accountant"
+      jobDescription: "You book the incoming invoices and bank statements in SAP for the Portuguese company. Normal bookings you make alone following our accounting manual; when something is not clear, like a new tax case, you give it to the senior accountant. You help in the month closing with the reconciliations. 2 years experience in accounting needed."
+    expect: { status: ok }
+    truth: { family: finance, level: L2 }
+
+  # Evidence spans L3 and L4 (one entity's close, partly coordinating a second): the lower.
+  - id: h-jl-033
+    input:
+      jobTitle: "Senior Accountant"
+      jobDescription: "You are responsible for the month-end close of the German entity and plan the closing tasks yourself. You decide on accruals within your area and analyse unusual balances. From time to time you also help coordinate the closing of the Portuguese entity and contribute to the group closing calendar. You guide two accountants informally. 5-8 years of experience."
+    expect: { status: ok }
+    truth: { family: finance, level: L3 }
+
+  - id: h-jl-034
+    input:
+      jobTitle: "HR Assistant"
+      jobDescription: "You prepare employment contracts and certificates from our templates as the HR business partners ask you. They check each document before it is sent. If a case does not fit any template, you ask them. You also keep the personnel files up to date. A first job or an apprenticeship in HR is ideal."
+    expect: { status: ok }
+    truth: { family: people, level: L1 }
+
+  # Family trap: "Accountant" in the title, but payroll belongs to People.
+  - id: h-jl-035
+    input:
+      jobTitle: "Payroll Accountant"
+      jobDescription: "You run the monthly payroll for about 400 employees in our payroll system, from time data to payslips. Routine changes such as new hires, leavers and overtime you handle on your own within the payroll process. Unusual tax or social security cases go to the payroll lead. 2-4 years of payroll experience."
+    expect: { status: ok }
+    truth: { family: people, level: L2 }
+
+  # Family trap: "Technical" in the title, but the work is recruiting.
+  - id: h-jl-036
+    input:
+      jobTitle: "Technical Recruiter"
+      jobDescription: "You own recruiting for all engineering roles, from the job advert to the signed contract. You plan your own campaigns, choose the channels and decide which candidates go to the hiring managers. You analyse why candidates drop out and change the process. You guide a working student in sourcing. 3-6 years of recruiting experience."
+    expect: { status: ok }
+    truth: { family: people, level: L3 }
+
+  - id: h-jl-037
+    input:
+      jobTitle: "Senior HR Business Partner"
+      jobDescription: "You partner with the operations and finance departments and their managers on all people topics. You set the priorities of HR work for these areas and define how topics like workforce planning are handled. You design new approaches for difficult cases, such as the move to new shift models. You coach managers. No direct reports."
+    expect: { status: ok }
+    truth: { family: people, level: L4 }
+
+  - id: h-jl-038
+    input:
+      jobTitle: "Head of Talent Acquisition"
+      jobDescription: "You manage the two recruiting team leads and their teams of 10 recruiters. You set the recruiting standards and the employer brand direction for the whole company and are accountable for the recruiting budget. You solve problems that span functions, such as the driver shortage. You report to the Chief People Officer."
+    expect: { status: ok }
+    truth: { family: people, level: L5 }
+
+  - id: h-jl-039
+    input:
+      jobTitle: "Chief People Officer"
+      jobDescription: "You set the people strategy of the company and answer to the executive board for it. You manage the heads of HR business partnering, payroll, recruiting and learning. You represent the company in collective bargaining with the unions and at public employer events. Your decisions shape the workforce of the next decade."
+    expect: { status: ok }
+    truth: { family: people, level: L6 }
+
+  # "Lead" title on one depot's onboarding training.
+  - id: h-jl-040
+    input:
+      jobTitle: "Learning Lead"
+      jobDescription: "You organise the onboarding training for new drivers at the Berlin depot. You plan the sessions, choose the material and adapt it after the trainees' feedback. You decide the schedule within your area and solve problems with the depot management. You guide two part-time trainers informally."
+    expect: { status: ok }
+    truth: { family: people, level: L3 }
+
+  # Imperfect English, routine HR questions with escalation.
+  - id: h-jl-041
+    input:
+      jobTitle: "HR Generalist"
+      jobDescription: "You answer the questions of employees about holidays, sick notes and certificates. Normal questions you solve alone with our HR guidelines, special cases you give to the HR business partner. You are working in the HR team process with a ticket system. Good German and English, 1-3 years experiences."
+    expect: { status: ok }
+    truth: { family: people, level: L2 }
+
+  - id: h-jl-042
+    input:
+      jobTitle: "Payroll Team Lead"
+      jobDescription: "You lead the payroll team of 5 specialists. You set the priorities for payroll and define how the monthly run, audits and year-end are done. You design new approaches where the standard does not work, for example the switch to a new time recording system. You coach the team and are measured on the results of the payroll department."
+    expect: { status: ok }
+    truth: { family: people, level: L4 }
+
+  - id: h-jl-043
+    input:
+      jobTitle: "Sales Development Representative"
+      jobDescription: "You call the business leads on the list your team lead prepares each week, following our call script. You book meetings for the account managers and record each call in the CRM. Your team lead reviews your calls and coaches you. Questions you cannot answer from the script you pass on to the account manager. No experience needed."
+    expect: { status: ok }
+    truth: { family: sales, level: L1 }
+
+  # "Head" title on a field sales role following a playbook.
+  - id: h-jl-044
+    input:
+      jobTitle: "Head of Sales Berlin"
+      jobDescription: "You visit small and medium business customers in Berlin and present our standard corporate mobility offers. You work through your own list of customers and follow the sales playbook. Discounts outside the price list need the approval of your sales manager. 1-3 years in B2B sales."
+    expect: { status: ok }
+    truth: { family: sales, level: L2 }
+
+  - id: h-jl-045
+    input:
+      jobTitle: "Key Account Manager"
+      jobDescription: "You own the accounts of our three largest logistics customers. You plan the account strategy, decide on offers within the agreed price corridor and analyse where the customers' needs are changing. You coordinate operations and finance colleagues for these accounts. You help new account managers informally. 4-7 years in key account management."
+    expect: { status: ok }
+    truth: { family: sales, level: L3 }
+
+  - id: h-jl-046
+    input:
+      jobTitle: "Sales Team Lead SME"
+      jobDescription: "You lead a team of 6 account managers for the SME segment in Germany. You set the priorities for the segment, define the sales process and coach your team. You design new approaches where the standard offer does not work, such as shared fleets for business parks. You are responsible for the segment's contribution to the sales department's results."
+    expect: { status: ok }
+    truth: { family: sales, level: L4 }
+
+  # Senior expert without reports leading cross-team bids.
+  - id: h-jl-047
+    input:
+      jobTitle: "Senior Bid Manager"
+      jobDescription: "You lead our largest public tenders, which involve operations, finance and legal teams. You set the priorities for each bid and define how the sales department prepares tenders. The tenders are complex and often ambiguous, so you design new approaches to pricing and risk. You coach account managers on bids. No direct reports."
+    expect: { status: ok }
+    truth: { family: sales, level: L4 }
+
+  - id: h-jl-048
+    input:
+      jobTitle: "VP Sales"
+      jobDescription: "You manage the sales managers of our three regions. You set the sales direction and standards for the whole sales function and are accountable for its revenue target and budget. You solve strategic questions across functions, such as pricing for new city contracts with Finance and Operations. You report to the Chief Commercial Officer."
+    expect: { status: ok }
+    truth: { family: sales, level: L5 }
+
+  - id: h-jl-049
+    input:
+      jobTitle: "Chief Commercial Officer"
+      jobDescription: "You set the commercial strategy of the company and answer to the executive board for revenue and growth. You manage the directors of sales and marketing. You represent the company towards major customers, cities and at industry events. Your decisions cover new markets and the long-term portfolio."
+    expect: { status: ok }
+    truth: { family: sales, level: L6 }
+
+  # Imperfect English, template work checked by others.
+  - id: h-jl-050
+    input:
+      jobTitle: "Sales Assistant"
+      jobDescription: "You prepare offers in the CRM with our templates when the account managers ask you. They check every offer before it go to the customer. You also update the customer data and prepare the visit lists. If something is not in the template, you ask the account manager."
+    expect: { status: ok }
+    truth: { family: sales, level: L1 }
