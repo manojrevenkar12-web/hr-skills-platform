@@ -11,6 +11,8 @@ export interface Case {
   id: string;
   title?: string;
   fixture?: string;
+  /** an inline dataset: rows passed to a builder function the skill ships, e.g. scripts/testkit.ts#company */
+  build?: { fn: string; rows: unknown[] };
   role?: Role;
   input: Record<string, unknown>;
   expect: Expect;
@@ -24,6 +26,8 @@ export interface Expect {
   includes?: Record<string, unknown[]>;
   excludes?: Record<string, unknown[]>;
   range?: Record<string, [number, number]>;
+  /** the same values in any order (a multiset) */
+  same_set?: Record<string, unknown[]>;
 }
 
 export function loadCases(file: string): Case[] {
@@ -65,6 +69,11 @@ export function check(c: Case, result: { status: string; output: unknown }): str
     const got = get(result.output, path);
     const arr = Array.isArray(got) ? got : [got];
     for (const w of unwanted) if (arr.some((g) => same(g, w))) out.push(`${path} includes ${JSON.stringify(w)}`);
+  }
+  for (const [path, want] of Object.entries(e.same_set ?? {})) {
+    const got = get(result.output, path);
+    const norm = (xs: unknown[]) => xs.map((x) => JSON.stringify(x)).sort();
+    if (!Array.isArray(got) || JSON.stringify(norm(got)) !== JSON.stringify(norm(want))) out.push(`${path} = ${JSON.stringify(got)}, expected the values ${JSON.stringify(want)} in any order`);
   }
   for (const [path, [lo, hi]] of Object.entries(e.range ?? {})) {
     const got = get(result.output, path);

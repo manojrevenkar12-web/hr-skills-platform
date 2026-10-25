@@ -1,9 +1,1499 @@
 {
   "label": "dev",
   "set": "golden",
-  "recordedAt": "2026-10-25T14:30:11.629Z",
-  "git": null,
+  "recordedAt": "2026-10-25T14:35:03.765Z",
+  "git": "e457a6a",
   "skills": [
+    {
+      "skill": "job-levelling",
+      "version": "1.0.0",
+      "model": "simulated-1",
+      "cases": [
+        {
+          "id": "jl-01",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 128,
+          "truth": {
+            "family": "finance",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "jl-02",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 16,
+          "truth": {
+            "family": "operations",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "jl-03",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 15,
+          "truth": {
+            "family": "operations",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "jl-04",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 13,
+          "truth": {
+            "family": "engineering",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "jl-05",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 11,
+          "truth": {
+            "family": "engineering",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "jl-06",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "people",
+            "level": "L2"
+          }
+        },
+        {
+          "id": "jl-07",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10,
+          "truth": {
+            "family": "operations",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "jl-08",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 12,
+          "truth": {
+            "family": "sales",
+            "level": "L6"
+          }
+        },
+        {
+          "id": "jl-09",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9,
+          "truth": {
+            "family": "sales",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "jl-10",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8,
+          "truth": {
+            "family": "people",
+            "level": "L3"
+          }
+        },
+        {
+          "id": "jl-11",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "finance",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "jl-12",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7,
+          "truth": {
+            "family": "engineering",
+            "level": "L5"
+          }
+        },
+        {
+          "id": "jl-13",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 12,
+          "truth": {
+            "family": "operations",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "jl-14",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6,
+          "truth": {
+            "family": "finance",
+            "level": "L4"
+          }
+        },
+        {
+          "id": "jl-15",
+          "title": "A recruiter may level a job",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 5,
+          "truth": {
+            "family": "operations",
+            "level": "L1"
+          }
+        },
+        {
+          "id": "jl-16",
+          "title": "Too short to level is refused before the model sees it",
+          "passed": true,
+          "problems": [],
+          "status": "refused",
+          "findings": [],
+          "ms": 0
+        }
+      ],
+      "passRate": 1,
+      "faults": [
+        {
+          "id": "jl-01",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-01",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-01",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-01",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-01",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-02",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-02",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-02",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-02",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-02",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-03",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-03",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-03",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-03",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-03",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-04",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-04",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-04",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-04",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-04",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-05",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-05",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-05",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-05",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-05",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-06",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-06",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-06",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-06",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-06",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-07",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-07",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-07",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-07",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-07",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-08",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-08",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-08",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-08",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-08",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-09",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-09",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-09",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-09",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-09",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-10",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-10",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-10",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-10",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-10",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-11",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-11",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-11",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-11",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-11",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-12",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-12",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-12",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-12",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-12",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-13",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-13",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-13",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-13",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-13",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-14",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-14",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-14",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-14",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-14",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-15",
+          "fault": "invented_quote",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        },
+        {
+          "id": "jl-15",
+          "fault": "unknown_level",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "known_levels"
+          ]
+        },
+        {
+          "id": "jl-15",
+          "fault": "low_confidence_no_review",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "jl-15",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "jl-15",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "quotes_in_input"
+          ]
+        }
+      ],
+      "faultCatchRate": 1,
+      "byFault": {
+        "invented_quote": "15/15",
+        "unknown_level": "15/15",
+        "low_confidence_no_review": "15/15",
+        "invent_number": "15/15",
+        "skip_script": "15/15"
+      },
+      "metrics": {
+        "level_exact": 0.7333,
+        "level_within_one": 1,
+        "family_exact": 1,
+        "review_rate": 0
+      }
+    },
+    {
+      "skill": "merit-cycle-check",
+      "version": "1.0.0",
+      "model": "simulated-1",
+      "cases": [
+        {
+          "id": "mc-01",
+          "title": "Every proposal inside the guideline and the budget",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 19
+        },
+        {
+          "id": "mc-02",
+          "title": "4.2% above a 2.5-3.5% guideline with no reason blocks sign-off",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7
+        },
+        {
+          "id": "mc-03",
+          "title": "The same increase with a reason is a warning only",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "mc-04",
+          "title": "Any increase for a rating of 1 blocks",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "mc-05",
+          "title": "An in-guideline increase that passes the band maximum blocks",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "mc-06",
+          "title": "Proposals inside the guideline can still break the unit budget",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 7
+        },
+        {
+          "id": "mc-07",
+          "title": "Women 2.5%, men 3.5% at the same level and rating, all inside the guideline",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 10
+        },
+        {
+          "id": "mc-08",
+          "title": "Below the guideline is a warning to confirm",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 6
+        },
+        {
+          "id": "mc-09",
+          "title": "Two problems in one unit, none in the other",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 8
+        },
+        {
+          "id": "mc-10",
+          "title": "Only the unit asked for",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 9
+        },
+        {
+          "id": "mc-11",
+          "title": "The synthetic company, with its injected equity gap in DE-OPS-2",
+          "passed": true,
+          "problems": [],
+          "status": "ok",
+          "findings": [],
+          "ms": 22
+        },
+        {
+          "id": "mc-12",
+          "title": "HR leadership sees aggregates, not individual proposals",
+          "passed": true,
+          "problems": [],
+          "status": "refused",
+          "findings": [],
+          "ms": 0
+        },
+        {
+          "id": "mc-13",
+          "title": "A cycle without a guideline fails plainly",
+          "passed": true,
+          "problems": [],
+          "status": "failed",
+          "findings": [],
+          "ms": 13
+        }
+      ],
+      "passRate": 1,
+      "faults": [
+        {
+          "id": "mc-01",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-02",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-02",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-02",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-02",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-02",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-03",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-04",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-04",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-04",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-04",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-04",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-05",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-05",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-05",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-05",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-05",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-06",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-06",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-06",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-06",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-06",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-07",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-07",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-07",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-07",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-07",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-08",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-09",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-09",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-09",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-09",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-09",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-10",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-11",
+          "fault": "skip_script",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema",
+            "schema"
+          ]
+        },
+        {
+          "id": "mc-11",
+          "fault": "drop_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "covers_findings"
+          ]
+        },
+        {
+          "id": "mc-11",
+          "fault": "invent_number",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        },
+        {
+          "id": "mc-11",
+          "fault": "invented_finding",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers",
+            "no_invented_findings"
+          ]
+        },
+        {
+          "id": "mc-11",
+          "fault": "propose_new_pct",
+          "caught": true,
+          "status": "held",
+          "findings": [
+            "grounded_numbers"
+          ]
+        }
+      ],
+      "faultCatchRate": 1,
+      "byFault": {
+        "skip_script": "11/11",
+        "drop_finding": "7/7",
+        "invent_number": "7/7",
+        "invented_finding": "7/7",
+        "propose_new_pct": "7/7"
+      },
+      "metrics": {}
+    },
     {
       "skill": "pay-gap-report",
       "version": "1.0.0",
@@ -16,7 +1506,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 95
+          "ms": 16
         },
         {
           "id": "pg-02",
@@ -25,7 +1515,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 7
+          "ms": 3
         },
         {
           "id": "pg-03",
@@ -34,7 +1524,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5
+          "ms": 3
         },
         {
           "id": "pg-04",
@@ -43,7 +1533,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 4
+          "ms": 3
         },
         {
           "id": "pg-05",
@@ -52,7 +1542,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5
+          "ms": 4
         },
         {
           "id": "pg-06",
@@ -61,7 +1551,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 6
+          "ms": 3
         },
         {
           "id": "pg-07",
@@ -70,7 +1560,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 4
         },
         {
           "id": "pg-08",
@@ -79,7 +1569,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 3
+          "ms": 4
         },
         {
           "id": "pg-09",
@@ -88,7 +1578,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 8
+          "ms": 6
         },
         {
           "id": "pg-10",
@@ -97,7 +1587,7 @@
           "problems": [],
           "status": "ok",
           "findings": [],
-          "ms": 5
+          "ms": 4
         },
         {
           "id": "pg-11",
@@ -106,7 +1596,7 @@
           "problems": [],
           "status": "failed",
           "findings": [],
-          "ms": 3
+          "ms": 2
         },
         {
           "id": "pg-12",

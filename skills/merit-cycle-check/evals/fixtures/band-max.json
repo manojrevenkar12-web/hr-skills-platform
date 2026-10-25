@@ -1,0 +1,1182 @@
+{
+ "entities": [
+  {
+   "id": "test-co",
+   "name": "Test Co (fictional)",
+   "country": "DE",
+   "currency": "EUR",
+   "fullTimeHours": 1720
+  }
+ ],
+ "employees": [
+  {
+   "id": "E-00001",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00002",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00003",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00004",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00005",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00006",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 3
+  },
+  {
+   "id": "E-00007",
+   "entity": "test-co",
+   "gender": "M",
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "orgUnit": "DE-OPS-1",
+   "managerId": null,
+   "fte": 1,
+   "hireDate": "2020-01-01",
+   "rating": 5
+  }
+ ],
+ "pay": [
+  {
+   "employeeId": "E-00001",
+   "year": 2026,
+   "base": 47880,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  },
+  {
+   "employeeId": "E-00002",
+   "year": 2026,
+   "base": 47880,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  },
+  {
+   "employeeId": "E-00003",
+   "year": 2026,
+   "base": 47880,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  },
+  {
+   "employeeId": "E-00004",
+   "year": 2026,
+   "base": 47880,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  },
+  {
+   "employeeId": "E-00005",
+   "year": 2026,
+   "base": 47880,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  },
+  {
+   "employeeId": "E-00006",
+   "year": 2026,
+   "base": 47880,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  },
+  {
+   "employeeId": "E-00007",
+   "year": 2026,
+   "base": 59472,
+   "complementary": 0,
+   "variable": 0,
+   "hoursPaid": 1720
+  }
+ ],
+ "proposals": [
+  {
+   "employeeId": "E-00001",
+   "cycle": "2026",
+   "proposedPct": 3,
+   "reason": "",
+   "proposedBy": "E-99999"
+  },
+  {
+   "employeeId": "E-00002",
+   "cycle": "2026",
+   "proposedPct": 3,
+   "reason": "",
+   "proposedBy": "E-99999"
+  },
+  {
+   "employeeId": "E-00003",
+   "cycle": "2026",
+   "proposedPct": 3,
+   "reason": "",
+   "proposedBy": "E-99999"
+  },
+  {
+   "employeeId": "E-00004",
+   "cycle": "2026",
+   "proposedPct": 3,
+   "reason": "",
+   "proposedBy": "E-99999"
+  },
+  {
+   "employeeId": "E-00005",
+   "cycle": "2026",
+   "proposedPct": 3,
+   "reason": "",
+   "proposedBy": "E-99999"
+  },
+  {
+   "employeeId": "E-00006",
+   "cycle": "2026",
+   "proposedPct": 3,
+   "reason": "",
+   "proposedBy": "E-99999"
+  },
+  {
+   "employeeId": "E-00007",
+   "cycle": "2026",
+   "proposedPct": 3.5,
+   "reason": "",
+   "proposedBy": "E-99999"
+  }
+ ],
+ "bands": [
+  {
+   "family": "engineering",
+   "level": "L1",
+   "location": "Berlin",
+   "mid": 42600,
+   "min": 34080,
+   "max": 51120
+  },
+  {
+   "family": "engineering",
+   "level": "L1",
+   "location": "Hamburg",
+   "mid": 43800,
+   "min": 35040,
+   "max": 52560
+  },
+  {
+   "family": "engineering",
+   "level": "L1",
+   "location": "Lisbon",
+   "mid": 26400,
+   "min": 21120,
+   "max": 31680
+  },
+  {
+   "family": "engineering",
+   "level": "L1",
+   "location": "Porto",
+   "mid": 24700,
+   "min": 19760,
+   "max": 29640
+  },
+  {
+   "family": "engineering",
+   "level": "L2",
+   "location": "Berlin",
+   "mid": 51500,
+   "min": 41200,
+   "max": 61800
+  },
+  {
+   "family": "engineering",
+   "level": "L2",
+   "location": "Hamburg",
+   "mid": 53100,
+   "min": 42480,
+   "max": 63720
+  },
+  {
+   "family": "engineering",
+   "level": "L2",
+   "location": "Lisbon",
+   "mid": 31900,
+   "min": 25520,
+   "max": 38280
+  },
+  {
+   "family": "engineering",
+   "level": "L2",
+   "location": "Porto",
+   "mid": 29900,
+   "min": 23920,
+   "max": 35880
+  },
+  {
+   "family": "engineering",
+   "level": "L3",
+   "location": "Berlin",
+   "mid": 62700,
+   "min": 50160,
+   "max": 75240
+  },
+  {
+   "family": "engineering",
+   "level": "L3",
+   "location": "Hamburg",
+   "mid": 64600,
+   "min": 51680,
+   "max": 77520
+  },
+  {
+   "family": "engineering",
+   "level": "L3",
+   "location": "Lisbon",
+   "mid": 38900,
+   "min": 31120,
+   "max": 46680
+  },
+  {
+   "family": "engineering",
+   "level": "L3",
+   "location": "Porto",
+   "mid": 36400,
+   "min": 29120,
+   "max": 43680
+  },
+  {
+   "family": "engineering",
+   "level": "L4",
+   "location": "Berlin",
+   "mid": 78400,
+   "min": 62720,
+   "max": 94080
+  },
+  {
+   "family": "engineering",
+   "level": "L4",
+   "location": "Hamburg",
+   "mid": 80800,
+   "min": 64640,
+   "max": 96960
+  },
+  {
+   "family": "engineering",
+   "level": "L4",
+   "location": "Lisbon",
+   "mid": 48600,
+   "min": 38880,
+   "max": 58320
+  },
+  {
+   "family": "engineering",
+   "level": "L4",
+   "location": "Porto",
+   "mid": 45500,
+   "min": 36400,
+   "max": 54600
+  },
+  {
+   "family": "engineering",
+   "level": "L5",
+   "location": "Berlin",
+   "mid": 98600,
+   "min": 78880,
+   "max": 118320
+  },
+  {
+   "family": "engineering",
+   "level": "L5",
+   "location": "Hamburg",
+   "mid": 101500,
+   "min": 81200,
+   "max": 121800
+  },
+  {
+   "family": "engineering",
+   "level": "L5",
+   "location": "Lisbon",
+   "mid": 61100,
+   "min": 48880,
+   "max": 73320
+  },
+  {
+   "family": "engineering",
+   "level": "L5",
+   "location": "Porto",
+   "mid": 57200,
+   "min": 45760,
+   "max": 68640
+  },
+  {
+   "family": "engineering",
+   "level": "L6",
+   "location": "Berlin",
+   "mid": 123200,
+   "min": 98560,
+   "max": 147840
+  },
+  {
+   "family": "engineering",
+   "level": "L6",
+   "location": "Hamburg",
+   "mid": 126900,
+   "min": 101520,
+   "max": 152280
+  },
+  {
+   "family": "engineering",
+   "level": "L6",
+   "location": "Lisbon",
+   "mid": 76400,
+   "min": 61120,
+   "max": 91680
+  },
+  {
+   "family": "engineering",
+   "level": "L6",
+   "location": "Porto",
+   "mid": 71500,
+   "min": 57200,
+   "max": 85800
+  },
+  {
+   "family": "operations",
+   "level": "L1",
+   "location": "Berlin",
+   "mid": 34200,
+   "min": 27360,
+   "max": 41040
+  },
+  {
+   "family": "operations",
+   "level": "L1",
+   "location": "Hamburg",
+   "mid": 35200,
+   "min": 28160,
+   "max": 42240
+  },
+  {
+   "family": "operations",
+   "level": "L1",
+   "location": "Lisbon",
+   "mid": 21200,
+   "min": 16960,
+   "max": 25440
+  },
+  {
+   "family": "operations",
+   "level": "L1",
+   "location": "Porto",
+   "mid": 19800,
+   "min": 15840,
+   "max": 23760
+  },
+  {
+   "family": "operations",
+   "level": "L2",
+   "location": "Berlin",
+   "mid": 41400,
+   "min": 33120,
+   "max": 49680
+  },
+  {
+   "family": "operations",
+   "level": "L2",
+   "location": "Hamburg",
+   "mid": 42600,
+   "min": 34080,
+   "max": 51120
+  },
+  {
+   "family": "operations",
+   "level": "L2",
+   "location": "Lisbon",
+   "mid": 25700,
+   "min": 20560,
+   "max": 30840
+  },
+  {
+   "family": "operations",
+   "level": "L2",
+   "location": "Porto",
+   "mid": 24000,
+   "min": 19200,
+   "max": 28800
+  },
+  {
+   "family": "operations",
+   "level": "L3",
+   "location": "Berlin",
+   "mid": 50400,
+   "min": 40320,
+   "max": 60480
+  },
+  {
+   "family": "operations",
+   "level": "L3",
+   "location": "Hamburg",
+   "mid": 51900,
+   "min": 41520,
+   "max": 62280
+  },
+  {
+   "family": "operations",
+   "level": "L3",
+   "location": "Lisbon",
+   "mid": 31200,
+   "min": 24960,
+   "max": 37440
+  },
+  {
+   "family": "operations",
+   "level": "L3",
+   "location": "Porto",
+   "mid": 29200,
+   "min": 23360,
+   "max": 35040
+  },
+  {
+   "family": "operations",
+   "level": "L4",
+   "location": "Berlin",
+   "mid": 63000,
+   "min": 50400,
+   "max": 75600
+  },
+  {
+   "family": "operations",
+   "level": "L4",
+   "location": "Hamburg",
+   "mid": 64900,
+   "min": 51920,
+   "max": 77880
+  },
+  {
+   "family": "operations",
+   "level": "L4",
+   "location": "Lisbon",
+   "mid": 39100,
+   "min": 31280,
+   "max": 46920
+  },
+  {
+   "family": "operations",
+   "level": "L4",
+   "location": "Porto",
+   "mid": 36500,
+   "min": 29200,
+   "max": 43800
+  },
+  {
+   "family": "operations",
+   "level": "L5",
+   "location": "Berlin",
+   "mid": 79200,
+   "min": 63360,
+   "max": 95040
+  },
+  {
+   "family": "operations",
+   "level": "L5",
+   "location": "Hamburg",
+   "mid": 81600,
+   "min": 65280,
+   "max": 97920
+  },
+  {
+   "family": "operations",
+   "level": "L5",
+   "location": "Lisbon",
+   "mid": 49100,
+   "min": 39280,
+   "max": 58920
+  },
+  {
+   "family": "operations",
+   "level": "L5",
+   "location": "Porto",
+   "mid": 45900,
+   "min": 36720,
+   "max": 55080
+  },
+  {
+   "family": "operations",
+   "level": "L6",
+   "location": "Berlin",
+   "mid": 99000,
+   "min": 79200,
+   "max": 118800
+  },
+  {
+   "family": "operations",
+   "level": "L6",
+   "location": "Hamburg",
+   "mid": 102000,
+   "min": 81600,
+   "max": 122400
+  },
+  {
+   "family": "operations",
+   "level": "L6",
+   "location": "Lisbon",
+   "mid": 61400,
+   "min": 49120,
+   "max": 73680
+  },
+  {
+   "family": "operations",
+   "level": "L6",
+   "location": "Porto",
+   "mid": 57400,
+   "min": 45920,
+   "max": 68880
+  },
+  {
+   "family": "finance",
+   "level": "L1",
+   "location": "Berlin",
+   "mid": 39900,
+   "min": 31920,
+   "max": 47880
+  },
+  {
+   "family": "finance",
+   "level": "L1",
+   "location": "Hamburg",
+   "mid": 41100,
+   "min": 32880,
+   "max": 49320
+  },
+  {
+   "family": "finance",
+   "level": "L1",
+   "location": "Lisbon",
+   "mid": 24700,
+   "min": 19760,
+   "max": 29640
+  },
+  {
+   "family": "finance",
+   "level": "L1",
+   "location": "Porto",
+   "mid": 23100,
+   "min": 18480,
+   "max": 27720
+  },
+  {
+   "family": "finance",
+   "level": "L2",
+   "location": "Berlin",
+   "mid": 48300,
+   "min": 38640,
+   "max": 57960
+  },
+  {
+   "family": "finance",
+   "level": "L2",
+   "location": "Hamburg",
+   "mid": 49700,
+   "min": 39760,
+   "max": 59640
+  },
+  {
+   "family": "finance",
+   "level": "L2",
+   "location": "Lisbon",
+   "mid": 29900,
+   "min": 23920,
+   "max": 35880
+  },
+  {
+   "family": "finance",
+   "level": "L2",
+   "location": "Porto",
+   "mid": 28000,
+   "min": 22400,
+   "max": 33600
+  },
+  {
+   "family": "finance",
+   "level": "L3",
+   "location": "Berlin",
+   "mid": 58800,
+   "min": 47040,
+   "max": 70560
+  },
+  {
+   "family": "finance",
+   "level": "L3",
+   "location": "Hamburg",
+   "mid": 60600,
+   "min": 48480,
+   "max": 72720
+  },
+  {
+   "family": "finance",
+   "level": "L3",
+   "location": "Lisbon",
+   "mid": 36500,
+   "min": 29200,
+   "max": 43800
+  },
+  {
+   "family": "finance",
+   "level": "L3",
+   "location": "Porto",
+   "mid": 34100,
+   "min": 27280,
+   "max": 40920
+  },
+  {
+   "family": "finance",
+   "level": "L4",
+   "location": "Berlin",
+   "mid": 73500,
+   "min": 58800,
+   "max": 88200
+  },
+  {
+   "family": "finance",
+   "level": "L4",
+   "location": "Hamburg",
+   "mid": 75700,
+   "min": 60560,
+   "max": 90840
+  },
+  {
+   "family": "finance",
+   "level": "L4",
+   "location": "Lisbon",
+   "mid": 45600,
+   "min": 36480,
+   "max": 54720
+  },
+  {
+   "family": "finance",
+   "level": "L4",
+   "location": "Porto",
+   "mid": 42600,
+   "min": 34080,
+   "max": 51120
+  },
+  {
+   "family": "finance",
+   "level": "L5",
+   "location": "Berlin",
+   "mid": 92400,
+   "min": 73920,
+   "max": 110880
+  },
+  {
+   "family": "finance",
+   "level": "L5",
+   "location": "Hamburg",
+   "mid": 95200,
+   "min": 76160,
+   "max": 114240
+  },
+  {
+   "family": "finance",
+   "level": "L5",
+   "location": "Lisbon",
+   "mid": 57300,
+   "min": 45840,
+   "max": 68760
+  },
+  {
+   "family": "finance",
+   "level": "L5",
+   "location": "Porto",
+   "mid": 53600,
+   "min": 42880,
+   "max": 64320
+  },
+  {
+   "family": "finance",
+   "level": "L6",
+   "location": "Berlin",
+   "mid": 115500,
+   "min": 92400,
+   "max": 138600
+  },
+  {
+   "family": "finance",
+   "level": "L6",
+   "location": "Hamburg",
+   "mid": 119000,
+   "min": 95200,
+   "max": 142800
+  },
+  {
+   "family": "finance",
+   "level": "L6",
+   "location": "Lisbon",
+   "mid": 71600,
+   "min": 57280,
+   "max": 85920
+  },
+  {
+   "family": "finance",
+   "level": "L6",
+   "location": "Porto",
+   "mid": 67000,
+   "min": 53600,
+   "max": 80400
+  },
+  {
+   "family": "people",
+   "level": "L1",
+   "location": "Berlin",
+   "mid": 36100,
+   "min": 28880,
+   "max": 43320
+  },
+  {
+   "family": "people",
+   "level": "L1",
+   "location": "Hamburg",
+   "mid": 37200,
+   "min": 29760,
+   "max": 44640
+  },
+  {
+   "family": "people",
+   "level": "L1",
+   "location": "Lisbon",
+   "mid": 22400,
+   "min": 17920,
+   "max": 26880
+  },
+  {
+   "family": "people",
+   "level": "L1",
+   "location": "Porto",
+   "mid": 20900,
+   "min": 16720,
+   "max": 25080
+  },
+  {
+   "family": "people",
+   "level": "L2",
+   "location": "Berlin",
+   "mid": 43700,
+   "min": 34960,
+   "max": 52440
+  },
+  {
+   "family": "people",
+   "level": "L2",
+   "location": "Hamburg",
+   "mid": 45000,
+   "min": 36000,
+   "max": 54000
+  },
+  {
+   "family": "people",
+   "level": "L2",
+   "location": "Lisbon",
+   "mid": 27100,
+   "min": 21680,
+   "max": 32520
+  },
+  {
+   "family": "people",
+   "level": "L2",
+   "location": "Porto",
+   "mid": 25300,
+   "min": 20240,
+   "max": 30360
+  },
+  {
+   "family": "people",
+   "level": "L3",
+   "location": "Berlin",
+   "mid": 53200,
+   "min": 42560,
+   "max": 63840
+  },
+  {
+   "family": "people",
+   "level": "L3",
+   "location": "Hamburg",
+   "mid": 54800,
+   "min": 43840,
+   "max": 65760
+  },
+  {
+   "family": "people",
+   "level": "L3",
+   "location": "Lisbon",
+   "mid": 33000,
+   "min": 26400,
+   "max": 39600
+  },
+  {
+   "family": "people",
+   "level": "L3",
+   "location": "Porto",
+   "mid": 30900,
+   "min": 24720,
+   "max": 37080
+  },
+  {
+   "family": "people",
+   "level": "L4",
+   "location": "Berlin",
+   "mid": 66500,
+   "min": 53200,
+   "max": 79800
+  },
+  {
+   "family": "people",
+   "level": "L4",
+   "location": "Hamburg",
+   "mid": 68500,
+   "min": 54800,
+   "max": 82200
+  },
+  {
+   "family": "people",
+   "level": "L4",
+   "location": "Lisbon",
+   "mid": 41200,
+   "min": 32960,
+   "max": 49440
+  },
+  {
+   "family": "people",
+   "level": "L4",
+   "location": "Porto",
+   "mid": 38600,
+   "min": 30880,
+   "max": 46320
+  },
+  {
+   "family": "people",
+   "level": "L5",
+   "location": "Berlin",
+   "mid": 83600,
+   "min": 66880,
+   "max": 100320
+  },
+  {
+   "family": "people",
+   "level": "L5",
+   "location": "Hamburg",
+   "mid": 86100,
+   "min": 68880,
+   "max": 103320
+  },
+  {
+   "family": "people",
+   "level": "L5",
+   "location": "Lisbon",
+   "mid": 51800,
+   "min": 41440,
+   "max": 62160
+  },
+  {
+   "family": "people",
+   "level": "L5",
+   "location": "Porto",
+   "mid": 48500,
+   "min": 38800,
+   "max": 58200
+  },
+  {
+   "family": "people",
+   "level": "L6",
+   "location": "Berlin",
+   "mid": 104500,
+   "min": 83600,
+   "max": 125400
+  },
+  {
+   "family": "people",
+   "level": "L6",
+   "location": "Hamburg",
+   "mid": 107600,
+   "min": 86080,
+   "max": 129120
+  },
+  {
+   "family": "people",
+   "level": "L6",
+   "location": "Lisbon",
+   "mid": 64800,
+   "min": 51840,
+   "max": 77760
+  },
+  {
+   "family": "people",
+   "level": "L6",
+   "location": "Porto",
+   "mid": 60600,
+   "min": 48480,
+   "max": 72720
+  },
+  {
+   "family": "sales",
+   "level": "L1",
+   "location": "Berlin",
+   "mid": 38000,
+   "min": 30400,
+   "max": 45600
+  },
+  {
+   "family": "sales",
+   "level": "L1",
+   "location": "Hamburg",
+   "mid": 39100,
+   "min": 31280,
+   "max": 46920
+  },
+  {
+   "family": "sales",
+   "level": "L1",
+   "location": "Lisbon",
+   "mid": 23600,
+   "min": 18880,
+   "max": 28320
+  },
+  {
+   "family": "sales",
+   "level": "L1",
+   "location": "Porto",
+   "mid": 22000,
+   "min": 17600,
+   "max": 26400
+  },
+  {
+   "family": "sales",
+   "level": "L2",
+   "location": "Berlin",
+   "mid": 46000,
+   "min": 36800,
+   "max": 55200
+  },
+  {
+   "family": "sales",
+   "level": "L2",
+   "location": "Hamburg",
+   "mid": 47400,
+   "min": 37920,
+   "max": 56880
+  },
+  {
+   "family": "sales",
+   "level": "L2",
+   "location": "Lisbon",
+   "mid": 28500,
+   "min": 22800,
+   "max": 34200
+  },
+  {
+   "family": "sales",
+   "level": "L2",
+   "location": "Porto",
+   "mid": 26700,
+   "min": 21360,
+   "max": 32040
+  },
+  {
+   "family": "sales",
+   "level": "L3",
+   "location": "Berlin",
+   "mid": 56000,
+   "min": 44800,
+   "max": 67200
+  },
+  {
+   "family": "sales",
+   "level": "L3",
+   "location": "Hamburg",
+   "mid": 57700,
+   "min": 46160,
+   "max": 69240
+  },
+  {
+   "family": "sales",
+   "level": "L3",
+   "location": "Lisbon",
+   "mid": 34700,
+   "min": 27760,
+   "max": 41640
+  },
+  {
+   "family": "sales",
+   "level": "L3",
+   "location": "Porto",
+   "mid": 32500,
+   "min": 26000,
+   "max": 39000
+  },
+  {
+   "family": "sales",
+   "level": "L4",
+   "location": "Berlin",
+   "mid": 70000,
+   "min": 56000,
+   "max": 84000
+  },
+  {
+   "family": "sales",
+   "level": "L4",
+   "location": "Hamburg",
+   "mid": 72100,
+   "min": 57680,
+   "max": 86520
+  },
+  {
+   "family": "sales",
+   "level": "L4",
+   "location": "Lisbon",
+   "mid": 43400,
+   "min": 34720,
+   "max": 52080
+  },
+  {
+   "family": "sales",
+   "level": "L4",
+   "location": "Porto",
+   "mid": 40600,
+   "min": 32480,
+   "max": 48720
+  },
+  {
+   "family": "sales",
+   "level": "L5",
+   "location": "Berlin",
+   "mid": 88000,
+   "min": 70400,
+   "max": 105600
+  },
+  {
+   "family": "sales",
+   "level": "L5",
+   "location": "Hamburg",
+   "mid": 90600,
+   "min": 72480,
+   "max": 108720
+  },
+  {
+   "family": "sales",
+   "level": "L5",
+   "location": "Lisbon",
+   "mid": 54600,
+   "min": 43680,
+   "max": 65520
+  },
+  {
+   "family": "sales",
+   "level": "L5",
+   "location": "Porto",
+   "mid": 51000,
+   "min": 40800,
+   "max": 61200
+  },
+  {
+   "family": "sales",
+   "level": "L6",
+   "location": "Berlin",
+   "mid": 110000,
+   "min": 88000,
+   "max": 132000
+  },
+  {
+   "family": "sales",
+   "level": "L6",
+   "location": "Hamburg",
+   "mid": 113300,
+   "min": 90640,
+   "max": 135960
+  },
+  {
+   "family": "sales",
+   "level": "L6",
+   "location": "Lisbon",
+   "mid": 68200,
+   "min": 54560,
+   "max": 81840
+  },
+  {
+   "family": "sales",
+   "level": "L6",
+   "location": "Porto",
+   "mid": 63800,
+   "min": 51040,
+   "max": 76560
+  }
+ ],
+ "meritPolicy": {
+  "cycle": "2026",
+  "matrix": {},
+  "budgetPct": 3.5,
+  "reasonRequiredOutsideGuideline": true,
+  "equityGapPp": 1
+ }
+}

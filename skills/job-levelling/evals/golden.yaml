@@ -1,0 +1,115 @@
+# Golden cases for job-levelling: invented job descriptions, levelled by hand against the job
+# architecture and references/levelling-guide.md. `truth` is the hand levelling; the cases pass on
+# a valid, checked result, and accuracy against the truth is reported as metrics.
+cases:
+  - id: jl-01
+    input:
+      jobTitle: Accounts Payable Clerk
+      jobDescription: "You process incoming supplier invoices and post them in the ledger, following the defined procedure. You check with the team lead when an invoice does not match an order. No experience needed; we train you. Up to 1 year of experience in accounting is a plus."
+    expect: { status: ok }
+    truth: { family: finance, level: L1 }
+
+  - id: jl-02
+    input:
+      jobTitle: Dispatcher
+      jobDescription: "You plan daily routes for our delivery drivers at one depot and handle routine changes during the shift independently; unusual cases go to the shift lead. 2 years of experience in dispatch or logistics."
+    expect: { status: ok }
+    truth: { family: operations, level: L2 }
+
+  - id: jl-03
+    input:
+      jobTitle: Maintenance Planner
+      jobDescription: "You plan the maintenance programme for the vehicles of one depot independently, choose how the workshop schedules its work and decide within your area. You guide two apprentices informally. 4 years of experience in vehicle maintenance."
+    expect: { status: ok }
+    truth: { family: operations, level: L3 }
+
+  - id: jl-04
+    input:
+      jobTitle: Backend Engineer
+      jobDescription: "You build and run services for our booking platform. You own a complete area of the backend, plan your own work and choose the methods, and you are trusted to decide within it. 3 years of experience in software engineering with TypeScript or Go."
+    expect: { status: ok }
+    truth: { family: engineering, level: L3 }
+
+  - id: jl-05
+    input:
+      jobTitle: Engineering Team Lead
+      jobDescription: "You lead a team of 6 engineers responsible for payments. You set priorities for the area, define how the team works and coach others. You design new approaches to ambiguous problems. 7 years of experience in software engineering."
+    expect: { status: ok }
+    truth: { family: engineering, level: L4 }
+
+  - id: jl-06
+    input:
+      jobTitle: Senior Recruiter
+      jobDescription: "You recruit for our depots: you take requests from hiring managers, publish adverts, screen candidates and schedule interviews, following our standard procedures and with guidance from the talent lead for anything new. 2 years of experience in recruiting."
+    expect: { status: ok }
+    truth: { family: people, level: L2 }
+
+  - id: jl-07
+    input:
+      jobTitle: Head of Fleet
+      jobDescription: "You manage the depot managers of all depots in the region and set the fleet strategy and standards for the function. You are accountable for a budget of EUR 30 million and for the business results of fleet operations. 12 years of experience in logistics."
+    expect: { status: ok }
+    truth: { family: operations, level: L5 }
+
+  - id: jl-08
+    input:
+      jobTitle: Chief Commercial Officer
+      jobDescription: "You set the commercial strategy for the whole company, report to the CEO and the board, and are accountable for company results in sales. You represent the company externally with key accounts and partners. You manage the heads of sales of all countries. 15 years of experience in sales leadership."
+    expect: { status: ok }
+    truth: { family: sales, level: L6 }
+
+  - id: jl-09
+    input:
+      jobTitle: Account Executive
+      jobDescription: "You win and manage business customers in your territory with a sales quota. You plan your own pipeline independently and decide how to approach each account; complex deals are reviewed with your manager. 4 years of experience in B2B sales."
+    expect: { status: ok }
+    truth: { family: sales, level: L3 }
+
+  - id: jl-10
+    input:
+      jobTitle: Payroll Specialist
+      jobDescription: "You run the monthly payroll for 900 employees, handle questions independently, and own the payroll area including year-end processes. You improve the process when problems need analysis and judgement. 5 years of experience in payroll."
+    expect: { status: ok }
+    truth: { family: people, level: L3 }
+
+  - id: jl-11
+    input:
+      jobTitle: Head of Controlling
+      jobDescription: "You lead the controlling department with two team leads and their teams, set the planning standards across the function and are accountable for the budget process of the company's business units. 10 years of experience in controlling."
+    expect: { status: ok }
+    truth: { family: finance, level: L5 }
+
+  - id: jl-12
+    input:
+      jobTitle: Staff Engineer
+      jobDescription: "You are the recognised expert for our data platform across the company. You have no direct reports but set the technical direction and standards for several teams and are accountable for the platform's reliability. 11 years of experience in software engineering."
+    expect: { status: ok }
+    truth: { family: engineering, level: L5 }
+
+  - id: jl-13
+    input:
+      jobTitle: Warehouse Operative
+      jobDescription: "You pick and pack parts for the workshops under supervision, following standard procedures for safety and quality. Shift work. No experience needed."
+    expect: { status: ok }
+    truth: { family: operations, level: L1 }
+
+  - id: jl-14
+    input:
+      jobTitle: Senior Treasury Analyst
+      jobDescription: "You manage the cash position across the company's entities and several banks, lead treasury projects across teams, set priorities for the treasury area and coach junior colleagues. 7 years of experience in treasury."
+    expect: { status: ok }
+    truth: { family: finance, level: L4 }
+
+  - id: jl-15
+    title: A recruiter may level a job
+    role: recruiter
+    input:
+      jobTitle: Driver
+      jobDescription: "You drive delivery vans on fixed routes from one depot under supervision, following standard procedures for loading and safety. Driving licence class B; no experience needed."
+    expect: { status: ok }
+    truth: { family: operations, level: L1 }
+
+  - id: jl-16
+    title: Too short to level is refused before the model sees it
+    input: { jobTitle: Driver, jobDescription: "Driver wanted." }
+    expect: { status: refused }

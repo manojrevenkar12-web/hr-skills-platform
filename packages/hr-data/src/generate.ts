@@ -12,6 +12,7 @@ const HEADCOUNT: Record<string, number> = { "nordwerk-de": 900, "nordwerk-pt": 3
 const FAMILY_MIX: Record<Family, number> = { engineering: 0.24, operations: 0.38, finance: 0.1, people: 0.08, sales: 0.2 };
 const WOMEN_SHARE: Record<Family, number> = { engineering: 0.24, operations: 0.3, finance: 0.55, people: 0.72, sales: 0.4 };
 // fewer women at higher levels: the main source of the raw (unadjusted) gap
+const UNIT_CODE: Record<Family, string> = { engineering: "ENG", operations: "OPS", finance: "FIN", people: "PPL", sales: "SAL" };
 const LEVEL_MIX = [0.18, 0.26, 0.26, 0.17, 0.09, 0.04];
 const WOMEN_LEVEL_TILT = [1.25, 1.15, 1.0, 0.8, 0.6, 0.45];
 
@@ -48,7 +49,7 @@ export function generate(seed = 2026, year = 2026): HrDataset {
       const fte = r.chance(gender === "F" ? 0.22 : 0.07) ? r.pick([0.5, 0.6, 0.75, 0.8]) : 1;
       const tenure = Math.max(0, Math.min(25, r.normal(3 + levelIdx * 2.2, 2.5)));
       const hire = new Date(Date.UTC(year, 11, 31) - tenure * 365.25 * 86400000);
-      const orgUnit = `${entity.country}-${family.slice(0, 3).toUpperCase()}-${r.int(1, family === "operations" ? 4 : 2)}`;
+      const orgUnit = `${entity.country}-${UNIT_CODE[family]}-${r.int(1, family === "operations" ? 4 : 2)}`;
       const emp: Employee = {
         id: `E-${String(n).padStart(5, "0")}`,
         entity: entity.id,

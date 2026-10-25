@@ -1,0 +1,53 @@
+version: 1.0.0
+owner: compensation
+classification: aggregate
+audience: [comp_partner, hr_business_partner, recruiter]
+maxTurns: 6
+allowedNumbers: [1, 2, 3, 4, 5, 6]
+inputs:
+  type: object
+  additionalProperties: false
+  required: [jobTitle, jobDescription]
+  properties:
+    jobTitle: { type: string, minLength: 2, maxLength: 120 }
+    jobDescription: { type: string, minLength: 50, maxLength: 12000 }
+    familyHint: { type: string, enum: [engineering, operations, finance, people, sales] }
+scripts:
+  extract_signals:
+    file: scripts/signals.ts
+    export: extractSignals
+    description: "Finds years of experience, people managed, budget and scope, autonomy and impact phrases in a job description, each with its exact words."
+tools: ["mcp:job_architecture"]
+validators: [schema, known_levels, quotes_in_input, grounded_numbers, aggregate_policy]
+output:
+  type: object
+  additionalProperties: false
+  required: [family, level, confidence, needsReview, evidence, rationale]
+  properties:
+    family: { type: string, enum: [engineering, operations, finance, people, sales] }
+    level: { type: string, enum: [L1, L2, L3, L4, L5, L6] }
+    alternativeLevel: { type: [string, "null"], enum: [L1, L2, L3, L4, L5, L6, null] }
+    confidence: { type: string, enum: [high, medium, low] }
+    needsReview: { type: boolean }
+    evidence:
+      type: array
+      minItems: 1
+      maxItems: 5
+      items:
+        type: object
+        additionalProperties: false
+        required: [criterion, quote, pointsTo]
+        properties:
+          criterion: { type: string, enum: [scope, autonomy, complexity, impact, experience] }
+          quote: { type: string, minLength: 4 }
+          pointsTo: { type: string, enum: [L1, L2, L3, L4, L5, L6] }
+    rationale: { type: string, minLength: 80, maxLength: 1200, x-prose: true }
+  allOf:
+    - if: { properties: { confidence: { const: low } } }
+      then: { properties: { needsReview: { const: true } } }
+acceptance:
+  golden_pass_rate: 1.0
+  fault_catch_rate: 1.0
+  metrics:
+    level_within_one: 0.9
+    family_exact: 0.9

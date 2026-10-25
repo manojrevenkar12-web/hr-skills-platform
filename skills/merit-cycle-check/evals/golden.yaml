@@ -1,0 +1,84 @@
+# Golden cases for merit-cycle-check. Rating 3 at compa-ratio 0.95 has a guideline of 2.5-3.5%;
+# the expected findings follow from references/policy.md by hand.
+cases:
+  - id: mc-01
+    title: Every proposal inside the guideline and the budget
+    fixture: fixtures/all-within.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { findings.length: 0, notes.length: 0 } }
+
+  - id: mc-02
+    title: 4.2% above a 2.5-3.5% guideline with no reason blocks sign-off
+    fixture: fixtures/above-no-reason.json
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      equals: { "findings[].code": [above_guideline], "findings[].severity": [blocking], notes.length: 1, findingsAddressed: [MC-001] }
+
+  - id: mc-03
+    title: The same increase with a reason is a warning only
+    fixture: fixtures/above-with-reason.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { "findings[].severity": [warning], notes.length: 0 } }
+
+  - id: mc-04
+    title: Any increase for a rating of 1 blocks
+    fixture: fixtures/rating-one.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { "findings[].code": [rating_one_increase] } }
+
+  - id: mc-05
+    title: An in-guideline increase that passes the band maximum blocks
+    fixture: fixtures/band-max.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { "findings[].code": [above_band_max] } }
+
+  - id: mc-06
+    title: Proposals inside the guideline can still break the unit budget
+    fixture: fixtures/over-budget.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { "findings[].code": [budget_exceeded], "summary[].utilisationPct": [200] } }
+
+  - id: mc-07
+    title: Women 2.5%, men 3.5% at the same level and rating, all inside the guideline
+    fixture: fixtures/equity-gap.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { "findings[].code": [equity_gap], "findings[].values.gapPp": [-1] } }
+
+  - id: mc-08
+    title: Below the guideline is a warning to confirm
+    fixture: fixtures/below-guideline.json
+    input: { entity: test-co, cycle: "2026" }
+    expect: { status: ok, equals: { "findings[].code": [below_guideline], "findings[].severity": [warning], notes.length: 0 } }
+
+  - id: mc-09
+    title: Two problems in one unit, none in the other
+    fixture: fixtures/two-units.json
+    input: { entity: test-co, cycle: "2026" }
+    expect:
+      status: ok
+      equals: { "findings[].code": [above_guideline, budget_exceeded], "notes[].orgUnit": [DE-OPS-2], findingsAddressed: [MC-001, MC-002] }
+
+  - id: mc-10
+    title: Only the unit asked for
+    fixture: fixtures/two-units.json
+    input: { entity: test-co, cycle: "2026", orgUnit: DE-OPS-1 }
+    expect: { status: ok, equals: { "summary[].orgUnit": [DE-OPS-1], findings.length: 0 } }
+
+  - id: mc-11
+    title: The synthetic company, with its injected equity gap in DE-OPS-2
+    input: { entity: nordwerk-de, cycle: "2026" }
+    expect:
+      status: ok
+      includes: { "findings[].code": [equity_gap, above_guideline, rating_one_increase], "notes[].orgUnit": [DE-OPS-2] }
+
+  - id: mc-12
+    title: HR leadership sees aggregates, not individual proposals
+    role: hr_leadership
+    input: { entity: nordwerk-de, cycle: "2026" }
+    expect: { status: refused }
+
+  - id: mc-13
+    title: A cycle without a guideline fails plainly
+    input: { entity: nordwerk-de, cycle: "2025" }
+    expect: { status: failed }

@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 
-import { generate, MemorySource, type HrSource } from "@hsp/hr-data";
+import { generate, MemorySource, type HrDataset, type HrSource } from "@hsp/hr-data";
 import { runSkill, SimulatedProvider, type Behaviour, type Provider, type RunResult } from "@hsp/harness";
 import type { Skill } from "@hsp/skill-kit";
 
@@ -70,8 +70,10 @@ export async function evaluateSkill(skill: Skill, skills: Skill[], casesFile: st
   const cases = loadCases(casesFile);
   const base = dirname(casesFile);
 
+  const sources = new Map<string, HrSource>();
+  for (const c of cases) sources.set(c.id, await sourceFor(c, base, skill));
   const run = (c: Case, p: Provider): Promise<RunResult> =>
-    runSkill({ skill, skills, input: c.input, role: c.role ?? skill.contract.audience[0]!, provider: p, source: sourceFor(c, base) });
+    runSkill({ skill, skills, input: c.input, role: c.role ?? skill.contract.audience[0]!, provider: p, source: sources.get(c.id)! });
 
   const rows: CaseRow[] = [];
   const faithful = new Map<string, RunResult>();
@@ -112,7 +114,13 @@ export async function evaluateSkill(skill: Skill, skills: Skill[], casesFile: st
   };
 }
 
-function sourceFor(c: Case, base: string): HrSource {
+async function sourceFor(c: Case, base: string, skill: Skill): Promise<HrSource> {
+  if (c.build) {
+    const [file, fn] = c.build.fn.split("#");
+    const mod = (await import(pathToFileURL(join(skill.dir, file!)).href)) as Record<string, (rows: unknown[]) => HrDataset>;
+    if (typeof mod[fn!] !== "function") throw new Error(`${c.id}: ${c.build.fn} is not a function`);
+    return new MemorySource(mod[fn!]!(c.build.rows));
+  }
   return c.fixture ? MemorySource.fromFile(join(base, c.fixture)) : demoSource();
 }
 
